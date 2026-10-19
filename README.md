@@ -26,6 +26,23 @@ python3 -m http.server 8000
 
 Puis ouvrir <http://localhost:8000/>.
 
+## Publication
+
+Le site est publie par GitHub Pages depuis la branche `main` du depot
+<https://github.com/g15365382-design/mardy-beauty>, a l'adresse :
+
+<https://g15365382-design.github.io/mardy-beauty/>
+
+Pour mettre le site a jour, modifier les fichiers puis :
+
+```bash
+git add -A
+git commit -m "Description de la modification"
+git push
+```
+
+GitHub reconstruit le site automatiquement en une minute environ.
+
 ## Structure du projet
 
 ```
@@ -46,7 +63,8 @@ mardy-beauty/
 │   │   ├── logo.jpeg       Logo fourni : monogramme + nom sur fond creme
 │   │   ├── logo-mono.jpeg  Logo fourni : badge rond + signature
 │   │   ├── badge.png       Badge rond detoure, fond transparent (en-tete, pied)
-│   │   └── favicon.png     Favicon derive du badge
+│   │   ├── favicon.png     Favicon derive du badge
+│   │   └── partage.jpg     Image d'apercu pour le partage de lien (1200 x 630)
 │   └── images/
 │       └── galerie/        Photos : .webp (servies) + .jpg (repli)
 └── README.md
@@ -119,6 +137,7 @@ ete retire pour obtenir un badge detoure et net.
 | --- | --- | --- |
 | `assets/brand/badge.png` | Badge rond dans l'en-tete et le pied de page, suivi du nom ecrit en texte (selectionnable et lisible par les lecteurs d'ecran) | Recadrage du badge de `logo-mono.jpeg`, fond creme supprime |
 | `assets/brand/favicon.png` | Favicon 128 x 128 | Le meme badge, replace sur un fond creme |
+| `assets/brand/partage.jpg` | Apercu affiche quand un lien du site est partage sur WhatsApp, Facebook ou X | Composition 1200 x 630 montee avec ImageMagick |
 
 Regeneration du badge (Python + Pillow) :
 
@@ -138,6 +157,34 @@ Image.fromarray(np.dstack([couleur, alpha * 255.0]).astype(np.uint8), "RGBA").sa
 Le fichier obtenu est ensuite recadre sur son contenu, centre dans un carre avec une
 marge de 14 px, puis reduit a 256 x 256 px.
 
+## Image de partage
+
+Les reseaux sociaux ne savent pas lire une image en chemin relatif : les balises
+`og:image` portent donc l'adresse complete du site. Elles pointent toutes vers
+`assets/brand/partage.jpg`, une carte au format 1200 x 630 impose par les apercus
+de lien. Ce format est incompatible avec les photos de la galerie, toutes en
+portrait : d'ou cette image dediee, composee d'un panneau creme et d'un portrait.
+
+L'adresse du site est repetee dans le `<link rel="canonical">` et les balises
+`og:url` des cinq pages. Si le site change de domaine, remplacer partout
+`https://g15365382-design.github.io/mardy-beauty/` par la nouvelle adresse.
+
+Regeneration de la carte (ImageMagick) :
+
+```bash
+BASE=https://g15365382-design.github.io/mardy-beauty
+# Blocs de texte rendus en 2x pour rester nets, puis ramenes a l'echelle 1x.
+magick -background none -density 144 pango:'<span foreground="#6e3a4c" font="Liberation Serif Bold 72">mMardy Beauty</span>' t-titre.png
+magick t-titre.png -resize 50% t-titre-1x.png
+# Panneau creme 700 x 630 avec le badge, le surtitre, le titre, le slogan et les activites.
+magick -size 700x630 xc:'#fbf7f4' t-titre-1x.png -gravity northwest -geometry +64+240 -composite panneau-creme.png
+# Portrait 500 x 630, visage entier, puis juxtaposition avec un filet dore.
+magick assets/images/galerie/galerie-01.jpg -resize '500x630^' -gravity north -extent 500x630 panneau-photo.png
+magick panneau-creme.png -size 3x630 xc:'#b9922f' panneau-photo.png +append -resize '1200x630!' -quality 90 -strip -interlace Plane assets/brand/partage.jpg
+```
+
+Le script complet figure dans l'historique Git du depot.
+
 ## Ou modifier les textes
 
 Les textes sont regroupes par page et nommes de facon explicite :
@@ -148,8 +195,8 @@ Les textes sont regroupes par page et nommes de facon explicite :
 - **Presentation et engagements** : `a-propos.html`.
 - **Coordonnees et questions frequentes** : `contact.html`, et le pied de page
   des cinq pages (WhatsApp, telephone, zone).
-- **Referencement** : balises `<title>`, `<meta name="description">` et
-  `og:*` en tete de chaque page.
+- Referencement : balises `<title>`, `<meta name="description">`, `og:*`,
+  `twitter:card` et `<link rel="canonical">` en tete de chaque page.
 
 ## Images de la galerie
 
@@ -281,6 +328,7 @@ bordure decorative ne depasse pas 1,3:1 et resterait invisible sous un champ.
   createurs. Elles sont conservees en attendant le choix de la cliente.
 - Le site n'existe pas sur les reseaux sociaux : WhatsApp et le telephone sont les
   seuls canaux, et il n'y a pas d'adresse electronique.
-- Les images de partage (`og:image`) utilisent des chemins relatifs, ce qui convient
-  a l'ouverture locale mais pas aux robots des reseaux sociaux : il faudra des URL
-  absolues lorsque le site aura son domaine.
+- Le site est publie sur GitHub Pages, a l'adresse
+  <https://g15365382-design.github.io/mardy-beauty/>. Cette adresse est repetee
+  dans les balises `og:url` et `canonical` des cinq pages : passer sur un nom de
+  domaine propre demande de les mettre a jour.
