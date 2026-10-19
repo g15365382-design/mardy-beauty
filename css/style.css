@@ -1,0 +1,1274 @@
+/* ==========================================================================
+   Mardy Beauty - Feuille de styles principale
+   Organisation :
+   1. Variables et jetons de design
+   2. Reinitialisation et base
+   3. Typographie
+   4. Utilitaires de mise en page
+   5. Accessibilite (focus, saut de contenu)
+   6. En-tete et navigation
+   7. Boutons
+   8. Hero
+   9. Carte de prestation
+   10. Galerie et filtres
+   11. Duo, valeurs et etapes
+   12. Contact et formulaire
+   13. Pied de page
+   14. Points de rupture
+   15. Vitrine : appels a l'action WhatsApp
+   16. Mosaique de la galerie photo
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Variables et jetons de design
+   Client : un seul endroit a modifier pour changer toute la charte graphique.
+   -------------------------------------------------------------------------- */
+:root {
+  /* Palette */
+  --couleur-creme: #fbf7f4;
+  --couleur-creme-fonce: #f3ebe6;
+  --couleur-blanc: #ffffff;
+  --couleur-rose-poudre: #e8b4b8;
+  --couleur-rose-clair: #f5dfe1;
+  --couleur-framboise: #ac445d;
+  --couleur-prune: #6e3a4c;
+  --couleur-prune-fonce: #43222e;
+  --couleur-dore: #b9922f;
+  --couleur-dore-clair: #e3c77e;
+  /* Or dedie au texte : le dore decoratif n'atteint pas le rapport 4.5:1. */
+  --couleur-dore-texte: #826621;
+  --couleur-texte: #3a2a31;
+  --couleur-texte-doux: #6f5a62;
+  --couleur-bordure: #e6d8d1;
+  /* Bordure des champs de saisie : elements d'interface, donc rapport 3:1. */
+  --couleur-bordure-champ: #b0846d;
+  --couleur-succes: #3a7454;
+  --couleur-erreur: #b0354f;
+
+  /* Typographie */
+  --police-titre: Georgia, "Times New Roman", "Liberation Serif", serif;
+  --police-corps: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  --taille-xs: 0.78rem;
+  --taille-sm: 0.9rem;
+  --taille-md: 1rem;
+  --taille-lg: 1.18rem;
+  --taille-xl: clamp(1.5rem, 1.2rem + 1.4vw, 2rem);
+  --taille-titre: clamp(2rem, 1.3rem + 3.4vw, 3.6rem);
+
+  /* Espacements */
+  --espace-1: 0.25rem;
+  --espace-2: 0.5rem;
+  --espace-3: 0.75rem;
+  --espace-4: 1rem;
+  --espace-5: 1.5rem;
+  --espace-6: 2rem;
+  --espace-7: 3rem;
+  --espace-8: 4.5rem;
+  --largeur-conteneur: 1200px;
+
+  /* Formes et ombres */
+  --rayon-sm: 8px;
+  --rayon-md: 14px;
+  --rayon-lg: 22px;
+  --rayon-plein: 999px;
+  --ombre-douce: 0 6px 18px rgba(67, 34, 46, 0.07);
+  --ombre-moyenne: 0 14px 34px rgba(67, 34, 46, 0.12);
+  --ombre-forte: 0 24px 60px rgba(67, 34, 46, 0.22);
+
+  /* Degrades reutilisables */
+  --degrade-prune: linear-gradient(135deg, var(--couleur-prune), var(--couleur-framboise));
+  --degrade-dore: linear-gradient(120deg, var(--couleur-dore-clair), var(--couleur-dore));
+  --degrade-creme: linear-gradient(180deg, var(--couleur-creme), var(--couleur-rose-clair));
+
+  /* Divers */
+  --transition-rapide: 180ms ease;
+  --transition-moyenne: 320ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  --hauteur-entete: 76px;
+}
+
+/* --------------------------------------------------------------------------
+   2. Reinitialisation et base
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--hauteur-entete) + var(--espace-4));
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--couleur-creme);
+  color: var(--couleur-texte);
+  font-family: var(--police-corps);
+  font-size: var(--taille-md);
+  line-height: 1.65;
+}
+
+body.est-verrouille {
+  overflow: hidden;
+}
+
+img,
+svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--couleur-prune);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--couleur-framboise);
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+/* --------------------------------------------------------------------------
+   3. Typographie
+   -------------------------------------------------------------------------- */
+h1,
+h2,
+h3,
+h4 {
+  margin: 0 0 var(--espace-4);
+  font-family: var(--police-titre);
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--couleur-prune-fonce);
+  letter-spacing: 0.01em;
+}
+
+h1 {
+  font-size: var(--taille-titre);
+}
+
+h2 {
+  font-size: var(--taille-xl);
+}
+
+h3 {
+  font-size: var(--taille-lg);
+}
+
+p {
+  margin: 0 0 var(--espace-4);
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+.surtitre {
+  display: inline-block;
+  margin-bottom: var(--espace-3);
+  color: var(--couleur-dore-texte);
+  font-family: var(--police-corps);
+  font-size: var(--taille-xs);
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.texte-intro {
+  max-width: 62ch;
+  color: var(--couleur-texte-doux);
+  font-size: var(--taille-lg);
+}
+
+.texte-intro--centre {
+  margin-inline: auto;
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   4. Utilitaires de mise en page
+   -------------------------------------------------------------------------- */
+.conteneur {
+  width: min(100% - 2.5rem, var(--largeur-conteneur));
+  margin-inline: auto;
+}
+
+.section {
+  padding-block: var(--espace-7);
+}
+
+.section--creme {
+  background-color: var(--couleur-creme-fonce);
+}
+
+.section--prune {
+  background: var(--degrade-prune);
+  color: var(--couleur-rose-clair);
+}
+
+.section--prune h2,
+.section--prune h3 {
+  color: var(--couleur-blanc);
+}
+
+.section__entete {
+  max-width: 68ch;
+  margin-bottom: var(--espace-6);
+}
+
+.section__entete--centre {
+  margin-inline: auto;
+  text-align: center;
+}
+
+.grille {
+  display: grid;
+  gap: var(--espace-5);
+}
+
+.grille--galerie {
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+}
+
+.grille--trois {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.ecart-haut {
+  margin-top: var(--espace-6);
+}
+
+/* --------------------------------------------------------------------------
+   5. Accessibilite
+   -------------------------------------------------------------------------- */
+.lien-evitement {
+  position: absolute;
+  top: -100px;
+  left: var(--espace-4);
+  z-index: 200;
+  padding: var(--espace-3) var(--espace-5);
+  background: var(--couleur-prune);
+  color: var(--couleur-blanc);
+  border-radius: var(--rayon-sm);
+  transition: top var(--transition-rapide);
+}
+
+.lien-evitement:focus {
+  top: var(--espace-4);
+  color: var(--couleur-blanc);
+}
+
+.lecture-seule {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+:focus-visible {
+  outline: 3px solid var(--couleur-framboise);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   6. En-tete et navigation
+   -------------------------------------------------------------------------- */
+.entete {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(251, 247, 244, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid transparent;
+  transition: box-shadow var(--transition-moyenne), border-color var(--transition-moyenne);
+}
+
+.entete.est-colle {
+  box-shadow: var(--ombre-douce);
+  border-bottom-color: var(--couleur-bordure);
+}
+
+.entete__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espace-4);
+  min-height: var(--hauteur-entete);
+}
+
+.marque {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--espace-3);
+  flex-shrink: 0;
+}
+
+.marque__badge {
+  width: 44px;
+  height: 44px;
+}
+
+.marque__nom {
+  font-family: var(--police-titre);
+  font-size: 1.28rem;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.nav__liste {
+  display: flex;
+  align-items: center;
+  gap: var(--espace-2);
+}
+
+.nav__lien {
+  display: block;
+  padding: var(--espace-2) var(--espace-4);
+  color: var(--couleur-texte);
+  font-size: var(--taille-sm);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: var(--rayon-plein);
+  transition: background-color var(--transition-rapide), color var(--transition-rapide);
+}
+
+.nav__lien:hover {
+  background-color: var(--couleur-rose-clair);
+  color: var(--couleur-prune);
+}
+
+.nav__lien[aria-current="page"] {
+  background: var(--degrade-prune);
+  color: var(--couleur-blanc);
+}
+
+.burger {
+  display: none;
+  width: 46px;
+  height: 46px;
+  padding: 0;
+  background: var(--couleur-blanc);
+  border: 1px solid var(--couleur-bordure);
+  border-radius: var(--rayon-md);
+}
+
+.burger__barre {
+  display: block;
+  width: 20px;
+  height: 2px;
+  margin: 4px auto;
+  background: var(--couleur-prune);
+  border-radius: 2px;
+  transition: transform var(--transition-moyenne), opacity var(--transition-rapide);
+}
+
+.burger[aria-expanded="true"] .burger__barre:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.burger[aria-expanded="true"] .burger__barre:nth-child(2) {
+  opacity: 0;
+}
+
+.burger[aria-expanded="true"] .burger__barre:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* --------------------------------------------------------------------------
+   7. Boutons
+   -------------------------------------------------------------------------- */
+.bouton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--espace-2);
+  padding: var(--espace-3) var(--espace-6);
+  border: 1px solid transparent;
+  border-radius: var(--rayon-plein);
+  font-size: var(--taille-sm);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: transform var(--transition-rapide), box-shadow var(--transition-rapide),
+    background-color var(--transition-rapide), color var(--transition-rapide);
+}
+
+.bouton--principal {
+  background: var(--degrade-prune);
+  color: var(--couleur-blanc);
+  box-shadow: var(--ombre-douce);
+}
+
+.bouton--principal:hover {
+  color: var(--couleur-blanc);
+  box-shadow: var(--ombre-moyenne);
+  transform: translateY(-2px);
+}
+
+.bouton--contour {
+  background: transparent;
+  border-color: var(--couleur-prune);
+  color: var(--couleur-prune);
+}
+
+.bouton--contour:hover {
+  background: var(--couleur-prune);
+  color: var(--couleur-blanc);
+  transform: translateY(-2px);
+}
+
+.bouton--clair {
+  background: var(--couleur-blanc);
+  color: var(--couleur-prune);
+}
+
+.bouton--clair:hover {
+  color: var(--couleur-framboise);
+  transform: translateY(-2px);
+}
+
+.bouton--bloc {
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   8. Hero
+   -------------------------------------------------------------------------- */
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--degrade-creme);
+}
+
+.hero__inner {
+  display: grid;
+  gap: var(--espace-6);
+  align-items: center;
+  padding-block: var(--espace-7);
+}
+
+.hero__texte {
+  max-width: 56ch;
+}
+
+.hero__titre {
+  margin-bottom: var(--espace-4);
+}
+
+.hero__sous-titre {
+  max-width: 48ch;
+  color: var(--couleur-texte-doux);
+  font-size: var(--taille-lg);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espace-3);
+  margin-top: var(--espace-5);
+}
+
+.hero__visuel {
+  position: relative;
+}
+
+.hero__portrait {
+  display: block;
+  overflow: hidden;
+  border-radius: var(--rayon-lg);
+  box-shadow: var(--ombre-moyenne);
+}
+
+.hero__portrait img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+/* Second visuel pose en chevauchement : il rappelle que les prestations ne
+   se limitent pas au maquillage (ici une manucure). */
+.hero__vignette {
+  position: absolute;
+  left: calc(-1 * var(--espace-4));
+  bottom: calc(-1 * var(--espace-4));
+  width: 34%;
+  max-width: 190px;
+  margin: 0;
+  border: 5px solid var(--couleur-blanc);
+  border-radius: var(--rayon-md);
+  box-shadow: var(--ombre-moyenne);
+}
+
+.hero__vignette img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.bandeau {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--espace-5);
+  padding-block: var(--espace-4);
+  background: var(--couleur-prune);
+  color: var(--couleur-rose-clair);
+  font-size: var(--taille-xs);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* --------------------------------------------------------------------------
+   9. Carte de prestation
+   -------------------------------------------------------------------------- */
+/* Chaque metier est presente sans visuel impose : le medaillon dore reprend
+   le monogramme de la marque. */
+.carte-prestation {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espace-3);
+  padding: var(--espace-6) var(--espace-5);
+  background: var(--couleur-blanc);
+  border: 1px solid var(--couleur-bordure);
+  border-radius: var(--rayon-lg);
+  box-shadow: var(--ombre-douce);
+  transition: transform var(--transition-moyenne), box-shadow var(--transition-moyenne);
+}
+
+.carte-prestation:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--ombre-moyenne);
+}
+
+.carte-prestation__medaillon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-start;
+  width: 52px;
+  height: 52px;
+  background: var(--degrade-dore);
+  color: var(--couleur-prune-fonce);
+  font-family: var(--police-titre);
+  font-size: var(--taille-lg);
+  border-radius: var(--rayon-plein);
+}
+
+.carte-prestation h3 {
+  margin: 0;
+  font-size: var(--taille-lg);
+}
+
+.carte-prestation p {
+  margin: 0;
+  color: var(--couleur-texte-doux);
+  font-size: var(--taille-sm);
+}
+
+.carte-prestation .lien-whatsapp {
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+/* --------------------------------------------------------------------------
+   10. Galerie et filtres
+   -------------------------------------------------------------------------- */
+.filtres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espace-2);
+  margin-bottom: var(--espace-6);
+}
+
+.filtre {
+  padding: var(--espace-2) var(--espace-5);
+  background: var(--couleur-blanc);
+  border: 1px solid var(--couleur-bordure);
+  border-radius: var(--rayon-plein);
+  color: var(--couleur-texte-doux);
+  font-size: var(--taille-sm);
+  font-weight: 600;
+  transition: background-color var(--transition-rapide), color var(--transition-rapide),
+    border-color var(--transition-rapide);
+}
+
+.filtre:hover {
+  border-color: var(--couleur-framboise);
+  color: var(--couleur-prune);
+}
+
+.filtre[aria-pressed="true"] {
+  background: var(--degrade-prune);
+  border-color: transparent;
+  color: var(--couleur-blanc);
+}
+
+.carte-galerie {
+  margin: 0;
+  overflow: hidden;
+  background: var(--couleur-blanc);
+  border: 1px solid var(--couleur-bordure);
+  border-radius: var(--rayon-lg);
+  box-shadow: var(--ombre-douce);
+  transition: transform var(--transition-moyenne), box-shadow var(--transition-moyenne),
+    opacity var(--transition-moyenne);
+}
+
+.carte-galerie:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--ombre-moyenne);
+}
+
+.carte-galerie.est-masquee {
+  display: none;
+}
+
+.carte-galerie__bouton {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  background: none;
+  border: 0;
+}
+
+.carte-galerie__bouton img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  transition: transform 600ms cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.carte-galerie__bouton:hover img,
+.carte-galerie__bouton:focus-visible img {
+  transform: scale(1.07);
+}
+
+.carte-galerie__voile {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  padding: var(--espace-4);
+  background: linear-gradient(to top, rgba(67, 34, 46, 0.78), rgba(67, 34, 46, 0));
+  color: var(--couleur-blanc);
+  font-size: var(--taille-sm);
+  font-weight: 600;
+  opacity: 0;
+  transition: opacity var(--transition-moyenne);
+}
+
+.carte-galerie__bouton:hover .carte-galerie__voile,
+.carte-galerie__bouton:focus-visible .carte-galerie__voile {
+  opacity: 1;
+}
+
+/* Sur les appareils sans survol (tactile), le libelle reste visible :
+   sans lui, rien n'indiquerait que le visuel ouvre WhatsApp. */
+@media (hover: none) {
+  .carte-galerie__voile {
+    opacity: 1;
+  }
+}
+
+.carte-galerie__legende {
+  padding: var(--espace-4) var(--espace-5) var(--espace-5);
+}
+
+.carte-galerie__legende h2,
+.carte-galerie__legende h3 {
+  margin: 0 0 var(--espace-1);
+  font-size: var(--taille-md);
+}
+
+.carte-galerie__legende p {
+  margin: 0;
+  color: var(--couleur-texte-doux);
+  font-size: var(--taille-sm);
+}
+
+.message-vide {
+  margin-top: var(--espace-5);
+  padding: var(--espace-5);
+  background: var(--couleur-blanc);
+  border: 1px dashed var(--couleur-bordure);
+  border-radius: var(--rayon-md);
+  color: var(--couleur-texte-doux);
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   11. Duo, valeurs et etapes
+   -------------------------------------------------------------------------- */
+.duo {
+  display: grid;
+  gap: var(--espace-6);
+  align-items: center;
+}
+
+.duo__visuel {
+  overflow: hidden;
+  border-radius: var(--rayon-lg);
+  box-shadow: var(--ombre-moyenne);
+}
+
+/* Les visuels du duo sont des photos verticales : le cadre suit leur cadrage
+   naturel au lieu de les recadrer en paysage. */
+.duo__visuel img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.atouts {
+  display: grid;
+  gap: var(--espace-2);
+  margin-top: var(--espace-5);
+  color: var(--couleur-texte-doux);
+  font-size: var(--taille-sm);
+}
+
+.atouts li {
+  position: relative;
+  padding-left: var(--espace-5);
+}
+
+.atouts li::before {
+  content: "";
+  position: absolute;
+  top: 0.62em;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  background: var(--degrade-dore);
+  border-radius: var(--rayon-plein);
+}
+
+.valeurs {
+  display: grid;
+  gap: var(--espace-5);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.valeur {
+  padding: var(--espace-5);
+  background: var(--couleur-blanc);
+  border: 1px solid var(--couleur-bordure);
+  border-radius: var(--rayon-lg);
+  box-shadow: var(--ombre-douce);
+}
+
+.valeur__icone {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  margin-bottom: var(--espace-4);
+  background: var(--degrade-dore);
+  color: var(--couleur-prune-fonce);
+  font-family: var(--police-titre);
+  font-size: var(--taille-lg);
+  border-radius: var(--rayon-plein);
+}
+
+.valeur h3 {
+  margin-bottom: var(--espace-2);
+  font-size: var(--taille-md);
+}
+
+.valeur p {
+  color: var(--couleur-texte-doux);
+  font-size: var(--taille-sm);
+}
+
+.etapes {
+  counter-reset: etape;
+  display: grid;
+  gap: var(--espace-5);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.etape {
+  position: relative;
+  padding: var(--espace-5);
+  padding-left: var(--espace-7);
+  background: var(--couleur-blanc);
+  border-radius: var(--rayon-lg);
+  box-shadow: var(--ombre-douce);
+}
+
+.etape::before {
+  counter-increment: etape;
+  content: counter(etape);
+  position: absolute;
+  top: var(--espace-5);
+  left: var(--espace-5);
+  color: var(--couleur-rose-poudre);
+  font-family: var(--police-titre);
+  font-size: 1.9rem;
+  line-height: 1;
+}
+
+/* --------------------------------------------------------------------------
+   12. Contact et formulaire
+   -------------------------------------------------------------------------- */
+.contact-grille {
+  display: grid;
+  gap: var(--espace-6);
+}
+
+.formulaire {
+  display: grid;
+  gap: var(--espace-4);
+  padding: var(--espace-6);
+  background: var(--couleur-blanc);
+  border: 1px solid var(--couleur-bordure);
+  border-radius: var(--rayon-lg);
+  box-shadow: var(--ombre-douce);
+}
+
+.champ {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espace-2);
+}
+
+.champ label {
+  font-size: var(--taille-sm);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.champ__obligatoire {
+  color: var(--couleur-framboise);
+}
+
+.champ input,
+.champ select,
+.champ textarea {
+  padding: var(--espace-3) var(--espace-4);
+  background: var(--couleur-creme);
+  border: 1px solid var(--couleur-bordure-champ);
+  border-radius: var(--rayon-md);
+  color: var(--couleur-texte);
+  font: inherit;
+  transition: border-color var(--transition-rapide), box-shadow var(--transition-rapide);
+}
+
+.champ input:focus,
+.champ select:focus,
+.champ textarea:focus {
+  border-color: var(--couleur-framboise);
+  box-shadow: 0 0 0 4px rgba(172, 68, 93, 0.16);
+  outline: none;
+}
+
+.champ textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.champ__aide {
+  color: var(--couleur-texte-doux);
+  font-size: var(--taille-xs);
+}
+
+.champ__erreur {
+  display: block;
+  min-height: 1.2em;
+  color: var(--couleur-erreur);
+  font-size: var(--taille-xs);
+}
+
+.champ.est-invalide input,
+.champ.est-invalide select,
+.champ.est-invalide textarea {
+  border-color: var(--couleur-erreur);
+}
+
+.formulaire__retour {
+  padding: var(--espace-4);
+  border-radius: var(--rayon-md);
+  font-size: var(--taille-sm);
+}
+
+.formulaire__retour--succes {
+  background: rgba(58, 116, 84, 0.12);
+  color: var(--couleur-succes);
+  border: 1px solid rgba(58, 116, 84, 0.35);
+}
+
+.formulaire__retour--erreur {
+  background: rgba(176, 53, 79, 0.1);
+  color: var(--couleur-erreur);
+  border: 1px solid rgba(176, 53, 79, 0.3);
+}
+
+.coordonnees {
+  display: grid;
+  gap: var(--espace-4);
+}
+
+.coordonnee {
+  padding: var(--espace-5);
+  background: var(--couleur-creme-fonce);
+  border-radius: var(--rayon-lg);
+}
+
+.coordonnee h2,
+.coordonnee h3 {
+  margin-bottom: var(--espace-2);
+  font-size: var(--taille-md);
+}
+
+.coordonnee p {
+  margin: 0;
+  color: var(--couleur-texte-doux);
+  font-size: var(--taille-sm);
+}
+
+.coordonnee a {
+  font-weight: 700;
+}
+
+.encart {
+  padding: var(--espace-6);
+  background: var(--degrade-creme);
+  border-radius: var(--rayon-lg);
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   13. Pied de page
+   -------------------------------------------------------------------------- */
+.pied {
+  padding-block: var(--espace-7) var(--espace-5);
+  background: var(--couleur-prune-fonce);
+  color: var(--couleur-rose-clair);
+}
+
+.pied a {
+  color: var(--couleur-rose-clair);
+}
+
+.pied a:hover {
+  color: var(--couleur-dore-clair);
+}
+
+.pied__grille {
+  display: grid;
+  gap: var(--espace-6);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.pied__nom {
+  display: flex;
+  align-items: center;
+  gap: var(--espace-3);
+  margin-bottom: var(--espace-4);
+  color: var(--couleur-blanc);
+  font-family: var(--police-titre);
+  font-size: 1.28rem;
+  line-height: 1;
+}
+
+.pied__nom img {
+  width: 44px;
+  height: 44px;
+}
+
+.pied h3 {
+  margin-bottom: var(--espace-4);
+  color: var(--couleur-blanc);
+  font-family: var(--police-corps);
+  font-size: var(--taille-xs);
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.pied__liste {
+  display: grid;
+  gap: var(--espace-2);
+  font-size: var(--taille-sm);
+}
+
+.pied__bas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--espace-3);
+  margin-top: var(--espace-6);
+  padding-top: var(--espace-5);
+  border-top: 1px solid rgba(232, 180, 184, 0.25);
+  font-size: var(--taille-xs);
+  color: rgba(245, 223, 225, 0.8);
+}
+
+/* --------------------------------------------------------------------------
+   14. Points de rupture
+   -------------------------------------------------------------------------- */
+@media (min-width: 768px) {
+  :root {
+    --hauteur-entete: 88px;
+  }
+
+  .section {
+    padding-block: var(--espace-8);
+  }
+
+  .hero__inner {
+    grid-template-columns: 1fr 1fr;
+    padding-block: var(--espace-8);
+  }
+
+  .hero__vignette {
+    left: calc(-1 * var(--espace-5));
+    bottom: calc(-1 * var(--espace-5));
+    max-width: 230px;
+  }
+
+  .contact-grille {
+    grid-template-columns: 1.3fr 1fr;
+  }
+
+  .duo {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .duo--inverse .duo__visuel {
+    order: -1;
+  }
+}
+
+/* Largeurs intermediaires : le menu resserre ses entrees pour tenir sur une
+   seule ligne a cote du nom de la marque. */
+@media (min-width: 768px) and (max-width: 1099px) {
+  .marque__badge {
+    width: 38px;
+    height: 38px;
+  }
+
+  .marque__nom {
+    font-size: 1.08rem;
+  }
+
+  .nav__lien {
+    padding: var(--espace-2) var(--espace-3);
+    font-size: var(--taille-xs);
+    letter-spacing: 0.03em;
+  }
+}
+
+@media (max-width: 767px) {
+  .burger {
+    display: block;
+  }
+
+  .nav {
+    position: fixed;
+    top: var(--hauteur-entete);
+    right: 0;
+    left: 0;
+    max-height: calc(100vh - var(--hauteur-entete));
+    overflow-y: auto;
+    padding: var(--espace-5);
+    background: var(--couleur-creme);
+    border-bottom: 1px solid var(--couleur-bordure);
+    box-shadow: var(--ombre-moyenne);
+    transform: translateX(100%);
+    visibility: hidden;
+    transition: transform var(--transition-moyenne), visibility var(--transition-moyenne);
+  }
+
+  .nav.est-ouvert {
+    transform: translateX(0);
+    visibility: visible;
+  }
+
+  .nav__liste {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--espace-2);
+  }
+
+  .nav__lien {
+    padding: var(--espace-4);
+    font-size: var(--taille-md);
+    text-align: left;
+    border-radius: var(--rayon-md);
+  }
+}
+
+/* Ecrans tres larges : on conserve des mesures de lecture confortables. */
+@media (min-width: 1400px) {
+  :root {
+    --largeur-conteneur: 1280px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   15. Vitrine : appels a l'action WhatsApp
+   -------------------------------------------------------------------------- */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--espace-4);
+}
+
+.actions--centre {
+  justify-content: center;
+}
+
+.hero__actions {
+  flex-wrap: wrap;
+}
+
+.bouton--whatsapp {
+  background: var(--degrade-prune);
+  color: var(--couleur-blanc);
+  box-shadow: var(--ombre-douce);
+}
+
+.bouton--whatsapp:hover {
+  color: var(--couleur-blanc);
+  box-shadow: var(--ombre-moyenne);
+  transform: translateY(-2px);
+}
+
+.lien-whatsapp {
+  font-size: var(--taille-sm);
+  font-weight: 700;
+  color: var(--couleur-prune);
+  white-space: nowrap;
+  text-decoration: none;
+  padding-bottom: 2px;
+  border-bottom: 2px solid var(--couleur-dore-clair);
+}
+
+.lien-whatsapp:hover {
+  color: var(--couleur-framboise);
+  border-bottom-color: var(--couleur-framboise);
+}
+
+.bouton-flottant {
+  position: fixed;
+  right: var(--espace-5);
+  bottom: var(--espace-5);
+  z-index: 80;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--espace-2);
+  padding: var(--espace-3) var(--espace-5);
+  border-radius: var(--rayon-plein);
+  background: var(--degrade-prune);
+  color: var(--couleur-blanc);
+  font-size: var(--taille-sm);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: var(--ombre-forte);
+  transition: transform var(--transition-rapide), box-shadow var(--transition-rapide);
+}
+
+.bouton-flottant:hover {
+  color: var(--couleur-blanc);
+  transform: translateY(-3px);
+  box-shadow: var(--ombre-moyenne), var(--ombre-forte);
+}
+
+.bouton-flottant:focus-visible {
+  outline: 3px solid var(--couleur-dore-clair);
+  outline-offset: 3px;
+}
+
+.bouton-flottant__icone {
+  flex: none;
+}
+
+@media (max-width: 600px) {
+  .bouton-flottant {
+    right: var(--espace-4);
+    bottom: var(--espace-4);
+    padding: var(--espace-3);
+  }
+
+  .bouton-flottant__libelle {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}
+
+@media print {
+  .bouton-flottant {
+    display: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   16. Mosaique de la galerie photo
+   Les visuels reels conservent leur cadrage d'origine : chaque carte est
+   posee dans une colonne et garde son propre rapport largeur / hauteur.
+   -------------------------------------------------------------------------- */
+.galerie-mosaique {
+  column-count: 3;
+  column-gap: var(--espace-5);
+}
+
+.galerie-mosaique .carte-galerie {
+  display: block;
+  width: 100%;
+  margin: 0 0 var(--espace-5);
+  break-inside: avoid;
+}
+
+.galerie-mosaique .carte-galerie__bouton picture {
+  display: block;
+}
+
+.galerie-mosaique .carte-galerie__bouton img {
+  aspect-ratio: auto;
+  height: auto;
+}
+
+@media (max-width: 1000px) {
+  .galerie-mosaique {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 620px) {
+  .galerie-mosaique {
+    column-count: 1;
+  }
+}

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact | mMardy Beauty - rendez-vous à Porto-Novo et à Cotonou</title>
+  <meta name="description" content="Prenez rendez-vous avec mMardy Beauty : WhatsApp au +229 46 54 34 06, téléphone, ou formulaire qui ouvre WhatsApp. Prestations à Porto-Novo et à Cotonou, à mon domicile ou chez vous.">
+  <link rel="icon" href="assets/brand/favicon.png" type="image/png">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Contact | mMardy Beauty">
+  <meta property="og:description" content="Un rendez-vous, une question sur une prestation ? Écrivez-moi sur WhatsApp.">
+  <meta property="og:image" content="assets/images/galerie/galerie-18.jpg">
+  <meta property="og:locale" content="fr_FR">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <script src="js/main.js" defer></script>
+</head>
+
+<body>
+  <a class="lien-evitement" href="#contenu">Aller au contenu principal</a>
+
+  <header class="entete" id="entete">
+    <div class="conteneur entete__inner">
+      <a class="marque" href="index.html">
+        <img class="marque__badge" src="assets/brand/badge.png" alt="" width="96" height="96">
+        <span class="marque__nom">mMardy Beauty</span>
+      </a>
+
+      <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="nav-principale" aria-label="Ouvrir le menu">
+        <span class="burger__barre" aria-hidden="true"></span>
+        <span class="burger__barre" aria-hidden="true"></span>
+        <span class="burger__barre" aria-hidden="true"></span>
+      </button>
+
+      <nav class="nav" id="nav-principale" aria-label="Navigation principale">
+        <ul class="nav__liste">
+          <li><a class="nav__lien" href="index.html">Accueil</a></li>
+          <li><a class="nav__lien" href="prestations.html">Prestations</a></li>
+          <li><a class="nav__lien" href="galerie.html">Galerie</a></li>
+          <li><a class="nav__lien" href="a-propos.html">À propos</a></li>
+          <li><a class="nav__lien" href="contact.html" aria-current="page">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenu">
+
+    <section class="section" aria-labelledby="titre-contact">
+      <div class="conteneur">
+        <div class="section__entete" data-reveal>
+          <p class="surtitre">Contact</p>
+          <h1 id="titre-contact">Un rendez-vous, une question ?</h1>
+          <p class="texte-intro">
+            Le plus simple reste WhatsApp : c'est là que je réponds le plus vite. Vous
+            pouvez aussi m'appeler. Dites-moi la prestation, la date et le lieu, et je
+            vous réponds avec mes disponibilités.
+          </p>
+          <p class="ecart-haut">
+            <a class="bouton bouton--whatsapp" href="https://wa.me/22946543406?text=Bonjour%20mMardy%20Beauty%2C%20je%20souhaite%20prendre%20rendez-vous." target="_blank" rel="noopener">Discuter sur WhatsApp</a>
+          </p>
+        </div>
+
+        <div class="contact-grille">
+          <form class="formulaire" id="formulaire-contact" novalidate data-reveal>
+            <div class="champ">
+              <label for="champ-nom">Nom et prénom <span class="champ__obligatoire" aria-hidden="true">*</span></label>
+              <input type="text" id="champ-nom" name="nom" autocomplete="name" required aria-required="true" aria-describedby="erreur-nom">
+              <span class="champ__erreur" id="erreur-nom"></span>
+            </div>
+
+            <div class="champ">
+              <label for="champ-telephone">Téléphone (facultatif)</label>
+              <input type="tel" id="champ-telephone" name="telephone" autocomplete="tel" aria-describedby="aide-telephone erreur-telephone">
+              <span class="champ__aide" id="aide-telephone">Pour que je puisse vous rappeler si besoin.</span>
+              <span class="champ__erreur" id="erreur-telephone"></span>
+            </div>
+
+            <div class="champ">
+              <label for="champ-prestation">Prestation souhaitée <span class="champ__obligatoire" aria-hidden="true">*</span></label>
+              <select id="champ-prestation" name="prestation" required aria-required="true" aria-describedby="aide-prestation erreur-prestation">
+                <option value="">Choisissez une prestation</option>
+                <option value="Maquillage">Maquillage</option>
+                <option value="Coiffure et perruques">Coiffure et perruques</option>
+                <option value="Onglerie">Onglerie</option>
+                <option value="Soins du visage">Soins du visage</option>
+                <option value="Plusieurs prestations">Plusieurs prestations</option>
+                <option value="Je ne sais pas encore">Je ne sais pas encore</option>
+              </select>
+              <span class="champ__aide" id="aide-prestation">Choisissez « Je ne sais pas encore » si vous souhaitez d'abord un conseil.</span>
+              <span class="champ__erreur" id="erreur-prestation"></span>
+            </div>
+
+            <div class="champ">
+              <label for="champ-message">Votre message <span class="champ__obligatoire" aria-hidden="true">*</span></label>
+              <textarea id="champ-message" name="message" rows="6" minlength="10" required aria-required="true" aria-describedby="aide-message erreur-message"></textarea>
+              <span class="champ__aide" id="aide-message">Indiquez la date, le lieu et l'occasion. Dix caractères minimum.</span>
+              <span class="champ__erreur" id="erreur-message"></span>
+            </div>
+
+            <p class="formulaire__retour formulaire__retour--succes" id="retour-succes" role="status" tabindex="-1" hidden>
+              Votre message s'est ouvert dans WhatsApp. Si rien ne s'est affiché, écrivez-moi
+              directement au +229 46 54 34 06.
+            </p>
+            <p class="formulaire__retour formulaire__retour--erreur" id="retour-erreur" role="alert" hidden>
+              Certains champs demandent une correction. Consultez les messages indiqués
+              sous chaque champ.
+            </p>
+
+            <p class="champ__aide">Les champs marqués d'un astérisque sont obligatoires. Votre message s'ouvre dans WhatsApp : rien n'est enregistré sur ce site.</p>
+
+            <button class="bouton bouton--principal bouton--bloc" type="submit">Envoyer sur WhatsApp</button>
+          </form>
+
+          <div class="coordonnees" data-reveal>
+            <div class="coordonnee">
+              <h2>Me joindre</h2>
+              <p>
+                <a href="https://wa.me/22946543406?text=Bonjour%20mMardy%20Beauty%2C%20je%20souhaite%20prendre%20rendez-vous." target="_blank" rel="noopener">WhatsApp : +229 46 54 34 06</a><br>
+                <a href="tel:+22946543406">Téléphone : +229 46 54 34 06</a>
+              </p>
+            </div>
+
+            <div class="coordonnee">
+              <h2>Où me trouver</h2>
+              <p>
+                Porto-Novo, Bénin. Je vous reçois à mon domicile, sur rendez-vous :
+                l'adresse exacte vous est confirmée au moment de la réservation.
+              </p>
+            </div>
+
+            <div class="coordonnee">
+              <h2>Déplacement</h2>
+              <p>
+                Je me déplace aussi chez vous, à Porto-Novo comme à Cotonou.
+              </p>
+            </div>
+
+            <div class="coordonnee">
+              <h2>Rendez-vous</h2>
+              <p>
+                Sur rendez-vous. Écrivez-moi la prestation, la date et le lieu sur
+                WhatsApp : je vous réponds avec mes disponibilités.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--creme" aria-labelledby="titre-faq">
+      <div class="conteneur">
+        <div class="section__entete" data-reveal>
+          <p class="surtitre">Questions fréquentes</p>
+          <h2 id="titre-faq">Avant de m'écrire</h2>
+        </div>
+
+        <div class="grille grille--trois">
+          <article class="valeur" data-reveal>
+            <h3>Comment réserver ?</h3>
+            <p>
+              Écrivez-moi sur WhatsApp en précisant la prestation, la date et le lieu.
+              Je vous réponds avec mes disponibilités et le tarif.
+            </p>
+          </article>
+
+          <article class="valeur" data-reveal>
+            <h3>Vous déplacez-vous à domicile ?</h3>
+            <p>
+              Oui. Je vous reçois chez moi à Porto-Novo, et je me déplace chez vous,
+              à Porto-Novo comme à Cotonou.
+            </p>
+          </article>
+
+          <article class="valeur" data-reveal>
+            <h3>Quels sont les tarifs ?</h3>
+            <p>
+              Ils dépendent de la prestation et du lieu. Demandez-les sur WhatsApp :
+              je vous réponds avec un montant clair, avant le rendez-vous.
+            </p>
+          </article>
+
+          <article class="valeur" data-reveal>
+            <h3>Puis-je venir avec une photo d'inspiration ?</h3>
+            <p>
+              Bien sûr. Montrez-moi le rendu qui vous plaît : je l'adapte à votre
+              carnation et à votre occasion.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="pied">
+    <div class="conteneur">
+      <div class="pied__grille">
+        <div>
+          <p class="pied__nom">
+            <img src="assets/brand/badge.png" alt="" width="96" height="96">
+            <span>mMardy Beauty</span>
+          </p>
+          <p>
+            Maquillage, coiffure et perruques, onglerie et soins du visage.
+            Prestations sur rendez-vous, à mon domicile ou chez vous,
+            à Porto-Novo et à Cotonou.
+          </p>
+        </div>
+
+        <nav aria-label="Navigation de pied de page">
+          <h3>Navigation</h3>
+          <ul class="pied__liste">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="prestations.html">Prestations</a></li>
+            <li><a href="galerie.html">Galerie</a></li>
+            <li><a href="a-propos.html">À propos</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div>
+          <h3>Me contacter</h3>
+          <ul class="pied__liste">
+            <li><a href="https://wa.me/22946543406" target="_blank" rel="noopener">WhatsApp : +229 46 54 34 06</a></li>
+            <li><a href="tel:+22946543406">Téléphone : +229 46 54 34 06</a></li>
+            <li>Porto-Novo, Bénin</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Pratique</h3>
+          <ul class="pied__liste">
+            <li>Sur rendez-vous</li>
+            <li>À domicile ou en déplacement</li>
+            <li>Porto-Novo et Cotonou</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pied__bas">
+        <p>© <span data-annee>2026</span> mMardy Beauty. Tous droits réservés.</p>
+        <p>Maquillage · Coiffure · Onglerie · Soins du visage</p>
+      </div>
+    </div>
+  </footer>
+
+  <a class="bouton-flottant" href="https://wa.me/22946543406?text=Bonjour%20mMardy%20Beauty%2C%20je%20souhaite%20prendre%20rendez-vous." target="_blank" rel="noopener" aria-label="Discuter avec mMardy Beauty sur WhatsApp"><svg class="bouton-flottant__icone" viewBox="0 0 448 512" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg><span class="bouton-flottant__libelle">WhatsApp</span></a>
+</body>
+
+</html>

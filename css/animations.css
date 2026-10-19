@@ -1,0 +1,255 @@
+/* ==========================================================================
+   Mardy Beauty - Animations et transitions
+   Contient : keyframes, apparitions au defilement, effets au survol,
+   menu mobile anime et neutralisation via prefers-reduced-motion.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Keyframes
+   -------------------------------------------------------------------------- */
+@keyframes apparition-vers-le-haut {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes apparition-fondu {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes derive-degrade {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   2. Hero : apparition progressive et degrade anime
+   -------------------------------------------------------------------------- */
+.hero {
+  background-size: 180% 180%;
+  animation: derive-degrade 18s ease-in-out infinite;
+}
+
+.hero__texte > * {
+  opacity: 0;
+  animation: apparition-vers-le-haut 900ms cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+.hero__texte .surtitre {
+  animation-delay: 120ms;
+}
+
+.hero__texte .hero__titre {
+  animation-delay: 260ms;
+}
+
+.hero__texte .hero__sous-titre {
+  animation-delay: 420ms;
+}
+
+.hero__texte .hero__actions {
+  animation-delay: 580ms;
+}
+
+.hero__visuel {
+  opacity: 0;
+  animation: apparition-fondu 1100ms ease forwards;
+  animation-delay: 260ms;
+}
+
+/* Legere parallaxe du portrait, pilote par js/main.js (variable --parallaxe).
+   Le second visuel du hero n'est pas concerne : il reste fixe. */
+.hero__portrait img {
+  transform: translate3d(0, var(--parallaxe, 0), 0) scale(1.05);
+  transition: transform 120ms linear;
+  will-change: transform;
+}
+
+/* --------------------------------------------------------------------------
+   3. Apparition au defilement (IntersectionObserver)
+   -------------------------------------------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 700ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 700ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition-delay: var(--delai, 0ms);
+  will-change: opacity, transform;
+}
+
+.reveal.est-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* La classe .reveal est ajoutee par js/main.js, puis retiree visuellement par
+   .est-visible. Sans JavaScript, aucun contenu n'est masque. */
+
+/* --------------------------------------------------------------------------
+   4. Survols et micro-interactions
+   -------------------------------------------------------------------------- */
+.bouton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: rgba(255, 255, 255, 0.22);
+  opacity: 0;
+  transition: opacity var(--transition-rapide);
+}
+
+.bouton {
+  position: relative;
+  overflow: hidden;
+}
+
+.bouton:hover::after {
+  opacity: 1;
+}
+
+.marque img {
+  transition: transform var(--transition-moyenne);
+}
+
+.marque:hover img {
+  transform: scale(1.03);
+}
+
+.filtre:active,
+.bouton:active {
+  transform: translateY(1px);
+}
+
+/* --------------------------------------------------------------------------
+   5. Galerie : cascade a l'apparition
+   -------------------------------------------------------------------------- */
+.grille--galerie .carte-galerie:nth-child(1) {
+  --delai: 0ms;
+}
+
+.grille--galerie .carte-galerie:nth-child(2) {
+  --delai: 70ms;
+}
+
+.grille--galerie .carte-galerie:nth-child(3) {
+  --delai: 140ms;
+}
+
+.grille--galerie .carte-galerie:nth-child(4) {
+  --delai: 210ms;
+}
+
+.grille--galerie .carte-galerie:nth-child(5) {
+  --delai: 280ms;
+}
+
+.grille--galerie .carte-galerie:nth-child(6) {
+  --delai: 350ms;
+}
+
+.grille--galerie .carte-galerie:nth-child(7) {
+  --delai: 420ms;
+}
+
+.grille--galerie .carte-galerie:nth-child(8) {
+  --delai: 490ms;
+}
+
+/* Cartes de prestation : cascade courte sur la page d'accueil. */
+.grille--trois .carte-prestation:nth-child(1) {
+  --delai: 0ms;
+}
+
+.grille--trois .carte-prestation:nth-child(2) {
+  --delai: 70ms;
+}
+
+.grille--trois .carte-prestation:nth-child(3) {
+  --delai: 140ms;
+}
+
+.grille--trois .carte-prestation:nth-child(4) {
+  --delai: 210ms;
+}
+
+/* --------------------------------------------------------------------------
+   5 bis. Mosaique de la galerie : cascade courte sur les premiers visuels
+   -------------------------------------------------------------------------- */
+.galerie-mosaique .carte-galerie:nth-child(1) {
+  --delai: 0ms;
+}
+
+.galerie-mosaique .carte-galerie:nth-child(2) {
+  --delai: 60ms;
+}
+
+.galerie-mosaique .carte-galerie:nth-child(3) {
+  --delai: 120ms;
+}
+
+.galerie-mosaique .carte-galerie:nth-child(4) {
+  --delai: 180ms;
+}
+
+.galerie-mosaique .carte-galerie:nth-child(5) {
+  --delai: 240ms;
+}
+
+.galerie-mosaique .carte-galerie:nth-child(6) {
+  --delai: 300ms;
+}
+
+/* --------------------------------------------------------------------------
+   6. Accessibilite : mouvement reduit
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0.001ms !important;
+    transition-delay: 0ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .hero {
+    animation: none;
+  }
+
+  .hero__texte > *,
+  .hero__visuel {
+    opacity: 1;
+    transform: none;
+  }
+
+  .hero__portrait img {
+    transform: none;
+  }
+
+  .nav {
+    transition: none;
+  }
+}

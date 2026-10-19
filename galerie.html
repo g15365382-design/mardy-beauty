@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Galerie | mMardy Beauty - maquillage, onglerie et soins du visage</title>
+  <meta name="description" content="Galerie photo de mMardy Beauty à Porto-Novo : mises en beauté, onglerie et soins du visage. Filtrez les visuels par prestation, puis cliquez sur celui qui vous plaît pour en discuter sur WhatsApp.">
+  <link rel="icon" href="assets/brand/favicon.png" type="image/png">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Galerie | mMardy Beauty">
+  <meta property="og:description" content="Maquillage, onglerie et soins du visage : un aperçu du travail de mMardy Beauty, en images.">
+  <meta property="og:image" content="assets/images/galerie/galerie-01.jpg">
+  <meta property="og:locale" content="fr_FR">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <script src="js/main.js" defer></script>
+  <script src="js/galerie.js" defer></script>
+</head>
+
+<body>
+  <a class="lien-evitement" href="#contenu">Aller au contenu principal</a>
+
+  <header class="entete" id="entete">
+    <div class="conteneur entete__inner">
+      <a class="marque" href="index.html">
+        <img class="marque__badge" src="assets/brand/badge.png" alt="" width="96" height="96">
+        <span class="marque__nom">mMardy Beauty</span>
+      </a>
+
+      <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="nav-principale" aria-label="Ouvrir le menu">
+        <span class="burger__barre" aria-hidden="true"></span>
+        <span class="burger__barre" aria-hidden="true"></span>
+        <span class="burger__barre" aria-hidden="true"></span>
+      </button>
+
+      <nav class="nav" id="nav-principale" aria-label="Navigation principale">
+        <ul class="nav__liste">
+          <li><a class="nav__lien" href="index.html">Accueil</a></li>
+          <li><a class="nav__lien" href="prestations.html">Prestations</a></li>
+          <li><a class="nav__lien" href="galerie.html" aria-current="page">Galerie</a></li>
+          <li><a class="nav__lien" href="a-propos.html">À propos</a></li>
+          <li><a class="nav__lien" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenu">
+
+    <section class="section" aria-labelledby="titre-galerie">
+      <div class="conteneur">
+        <div class="section__entete" data-reveal>
+          <p class="surtitre">Galerie</p>
+          <h1 id="titre-galerie">Mes réalisations, en images</h1>
+          <p class="texte-intro">
+            Maquillage, onglerie et soins du visage : voici un aperçu de mon travail,
+            classé par prestation. Cliquez sur le visuel qui vous plaît : la conversation
+            s'ouvre sur WhatsApp avec son nom déjà écrit, et vous pouvez me poser vos
+            questions.
+          </p>
+        </div>
+
+        <div class="filtres" role="group" aria-label="Filtrer les visuels par catégorie">
+          <button class="filtre" type="button" data-filtre="tout" aria-pressed="true">Tout</button>
+          <button class="filtre" type="button" data-filtre="maquillage" aria-pressed="false">Maquillage</button>
+          <button class="filtre" type="button" data-filtre="onglerie" aria-pressed="false">Onglerie</button>
+          <button class="filtre" type="button" data-filtre="soins" aria-pressed="false">Soins du visage</button>
+        </div>
+
+        <p class="lecture-seule" id="compteur-galerie" role="status" aria-live="polite">40 visuels affichés</p>
+
+        <div class="galerie-mosaique">
+          <figure class="carte-galerie" data-categorie="maquillage" data-reveal>
+            <a class="carte-galerie__bouton" href="https://wa.me/22946543406?text=Bonjour%20mMardy%20Beauty%2C%20je%20souhaite%20des%20informations%20sur%20ce%20visuel%20%3A%20Regard%20bronze%2C%20bouche%20gloss." target="_blank" rel="noopener" aria-label="Demander ce look sur WhatsApp : Regard bronze, bouche gloss"><picture>
+                <source type="image/webp" srcset="assets/images/galerie/galerie-01.webp">
+                <img src="assets/images/galerie/galerie-01.jpg" alt="Portrait rapproché d'une femme au maquillage bronze et aux lèvres brillantes" width="720" height="960" loading="lazy" decoding="async">
+              </picture>
+              <span class="carte-galerie__voile" aria-hidden="true">Demander ce look</span></a>
+            <figcaption class="carte-galerie__legende">
+              <h2>Regard bronze, bouche gloss</h2>
+              <p>Un dégradé bronze sur les paupières, réveillé par une bouche brillante.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="carte-galerie" data-categorie="maquillage" data-reveal>
+            <a class="carte-galerie__bouton" href="https://wa.me/22946543406?text=Bonjour%20mMardy%20Beauty%2C%20je%20souhaite%20des%20informations%20sur%20ce%20visuel%20%3A%20%C5%92il%20lilas%2C%20bouche%20nude." target="_blank" rel="noopener" aria-label="Demander ce look sur WhatsApp : Œil lilas, bouche nude"><picture>
+                <source type="image/webp" srcset="assets/images/galerie/galerie-02.webp">
+                <img src="assets/images/galerie/galerie-02.jpg" alt="Portrait d'une femme au fard à paupières lilas et aux lèvres nude" width="736" height="1240" loading="lazy" decoding="async">
+              </picture>
+              <span class="carte-galerie__voile" aria-hidden="true">Demander ce look</span></a>
+            <figcaption class="carte-galerie__legende">
+              <h2>Œil lilas, bouche nude</h2>
+              <p>Un fard lilas étiré vers l'extérieur, souligné d'un trait net.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="carte-galerie" data-categorie="onglerie" data-reveal>
+            <a class="carte-galerie__bouton" href="https://wa.me/22946543406?text=Bonjour%20mMardy%20Beauty%2C%20je%20souhaite%20des%20informations%20sur%20ce%20visuel%20%3A%20Stiletto%20bordeaux." target="_blank" rel="noopener" aria-label="Demander ce look sur WhatsApp : Stiletto bordeaux"><picture>
+                <source type="image/webp" srcset="assets/images/galerie/galerie-05.webp">
+                <img src="assets/images/galerie/galerie-05.jpg" alt="Ongles longs et pointus laqués de bordeaux brillant" width="736" height="652" loading="lazy" decoding="async">
+              </picture>
+              <span class="carte-galerie__voile" aria-hidden="true">Demander ce look</span></a>
+            <figcaption class="carte-galerie__legende">
+              <h2>Stiletto bordeaux</h2>
+              <p>Une longue forme amande habillée d'un bordeaux laqué.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="carte-galerie" data-categorie="maquillage" data-reveal>
+            <a class="carte-galerie__bouton" href="https://wa.me/22946543406?text=Bonjour%20mMardy%20Beauty%2C%20je%20souhaite%20des%20informations%20sur%20ce%20visuel%20%3A%20Nuancier%20de%20rouges." target="_blank" rel="noopener" aria-label="Demander ce look sur WhatsApp : Nuancier de rouges"><picture>
+                <source type="image/webp" srcset="assets/images/galerie/galerie-07.webp">
+                <img src="assets/images/galerie/galerie-07.jpg" alt="Planche de multiples teintes de rouge à lèvres portées sur les lèvres" width="735" height="1041" loading="lazy" decoding="async">
+              </picture>
+              <span class="carte-galerie__voile" aria-hidden="true">Demander ce look</span></a>
+            <figcaption class="carte-galerie__legende">
+              <h2>Nuancier de rouges</h2>
+              <p>Du nude au bordeaux : la même bouche déclinée dans toutes les teintes.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="carte-galerie" data-categorie="maquillage" data-reveal>
+            <a class="carte-galerie__bouton" href="https://wa.me/22946543406?text=Bonjour%20mMardy%20Beauty%2C%20je%20souhaite%20des%20informations%20sur%20ce%20visuel%20%3A%20Glam%20doux%2C%20cheveux%20longs." target="_blank" rel="noopener" aria-label="Demander ce look sur WhatsApp : Glam doux, cheveux longs"><picture>
+                <source type="image/webp" srcset="assets/images/galerie/galerie-10.webp">
+                <img src="assets/images/galerie/galerie-10.jpg" alt="Portrait d'une femme aux longs cheveux raides et au maquillage nude" width="735" height="1302" loading="lazy" decoding="async">
+              </picture>
+              <span class="carte-galerie__voile" aria-hidden="true">Demander ce look</span></a>
+            <figcaption class="carte-galerie__legende">
+              <h2>Glam doux, cheveux longs</h2>
+              <p>Un classique : teint nude, bouche brun glacé, cils étirés.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="carte-galerie" data-categorie="maquillage" data-reveal>
+            <a class="carte-galerie__bouton" href="https://wa.me/22946543406?text=Bonjour%20mMardy%20Beauty%2C%20je%20souhaite%20des%20informations%20sur%20ce%20visuel%20%3A%20Paupi%C3%A8res%20cuivr%C3%A9es." target="_blank" rel="noopener" aria-label="Demander ce look sur WhatsApp : Paupières cuivrées"><picture>
+                <source type="image/webp" srcset="assets/images/galerie/galerie-09.webp">
+                <img src="assets/images/galerie/galerie-09.jpg" alt="Portrait d'une femme aux paupières cuivrées et aux cheveux afro" width="720" height="879" loading="lazy" decoding="async">
+              </picture>
+              <span class="carte-galerie__voile" aria-hidden="true">Demander ce look</span></a>
+            <figcaption class="carte-galerie__legende">
+              <h2>Paupières cuivrées</h2>
+              <p>Un cuivre intense estompé vers l'arcade, pour un regard chaud.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="carte-galerie" data-categorie="maquillage" data-reveal>
+            <a class="carte-galerie__bouton" href="https://wa.me/22946543406?text=Bonjour%20mMardy%20Beauty%2C%20je%20souhaite%20des%20informations%20sur%20ce%20visuel%20%3A%20Nuancier%20l%C3%A8vres." target="_blank" rel="noopener" aria-label="Demander ce look sur WhatsApp : Nuancier lèvres"><picture>
+                <source type="image/webp" srcset="assets/images/galerie/galerie-17.webp">
+                <img src="assets/images/galerie/galerie-17.jpg" alt="Planche de gros plans de lèvres dans des teintes variées" width="675" height="1200" loading="lazy" decoding="async">
+              </picture>
+              <span class="carte-galerie__voile" aria-hidden="true">Demander ce look</span></a>
+            <figcaption class="carte-galerie__legende">
+              <h2>Nuancier lèvres</h2>
+              <p>Un tour complet des teintes, du rose clair au brun profond.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="carte-galerie" data-categorie="onglerie" data-reveal>
+            <a class="carte-galerie__bouton" href="https://wa.me/22946543406?text=Bonjour%20mMardy%20Beauty%2C%20je%20souhaite%20des%20informations%20sur%20ce%20visuel%20%3A%20Amande%20nude." target="_blank" rel="noopener" aria-label="Demander ce look sur WhatsApp : Amande nude"><picture>
+                <source type="image/webp" srcset="assets/images/galerie/galerie-08.webp">
+                <img src="assets/images/galerie/galerie-08.jpg" alt="Main aux longs ongles en amande d'une teinte nude brillante" width="736" height="984" loading="lazy" decoding="async">
+              </picture>
+              <span class="carte-galerie__voile" aria-hidden="true">Demander ce look</span></a>
+            <figcaption class="carte-galerie__legende">
+              <h2>Amande nude</h2>
+              <p>Une forme élancée au fini naturel, très lumineux.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="carte-galerie" data-categorie="maquillage" data-reveal>
+            <a class="carte-galerie__bouton" href="https://wa.me/22946543406?text=Bonjour%20mMardy%20Beauty%2C%20je%20souhaite%20des%20informations%20sur%20ce%20visuel%20%3A%20R%C3%A9tro%20glam." target="_blank" rel="noopener" aria-label="Demander ce look sur WhatsApp : Rétro glam"><picture>
+                <source type="image/webp" srcset="assets/images/galerie/galerie-11.webp">
+                <img src="assets/images/galerie/galerie-11.jpg" alt="Portrait d'une femme aux boucles volumineuses et aux lèvres brillantes" width="580" height="1048" loading="lazy" decoding="async">
+              </picture>
+              <span class="carte-galerie__voile" aria-hidden="true">Demander ce look</span></a>
+            <figcaption class="carte-galerie__legende">
+              <h2>Rétro glam</h2>
+              <p>Des boucles volumineuses et une bouche laquée, esprit vintage.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="carte-galerie" data-categorie="soins" data-reveal>
+            <a class="carte-galerie__bouton" href="https://wa.me/22946543406?text=Bonjour%20mMardy%20Beauty%2C%20je%20souhaite%20des%20informations%20sur%20ce%20visuel%20%3A%20Duo%20teint%20et%20soin." target="_blank" rel="noopener" aria-label="Demander ce look sur WhatsApp : Duo teint et soin"><picture>
+                <source type="image/webp" srcset="assets/images/galerie/galerie-22.webp">
+                <img src="assets/images/galerie/galerie-22.jpg" alt="Nature morte d'un flacon de fond de teint et d'une poudre compacte sur fond rose" width="1024" height="1024" loading="lazy" decoding="async">
+              </picture>
+              <span class="carte-galerie__voile" aria-hidden="true">Demander ce look</span></a>
+            <figcaption class="carte-galerie__legende">
+              <h2>Duo teint et soin</h2>
+              <p>Les soins qui préparent la peau, posés côte à côte.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="carte-galerie" data-categorie="maquillage" data-reveal>
+            <a class="carte-galerie__bouton" href="https://wa.me/22946543406?text=Bonjour%20mMardy%20Beauty%2C%20je%20souhaite%20des%20informations%20sur%20ce%20visuel%20%3A%20Trait%20et%20mati%C3%A8re." target="_blank" rel="noopener" aria-label="Demander ce look sur WhatsApp : Trait et matière"><picture>
+                <source type="image/webp" srcset="assets/images/galerie/galerie-32.webp">
+                <img src="assets/images/galerie/galerie-32.jpg" alt="Planche montrant une bouche maquillée et des crayons à lèvres" width="720" height="880" loading="lazy" decoding="async">
+              </picture>
+              <span class="carte-galerie__voile" aria-hidden="true">Demander ce look</span></a>
+            <figcaption class="carte-galerie__legende">
+              <h2>Trait et matière</h2>
+              <p>Le crayon dessine la bouche, le gloss la fait briller.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="carte-galerie" data-categorie="maquillage" data-reveal>
+            <a class="carte-galerie__bouton" href="https://wa.me/22946543406?text=Bonjour%20mMardy%20Beauty%2C%20je%20souhaite%20des%20informations%20sur%20ce%20visuel%20%3A%20Cil%20%C3%A0%20cil." target="_blank" rel="noopener" aria-label="Demander ce look sur WhatsApp : Cil à cil"><picture>
+                <source type="image/webp" srcset="assets/images/galerie/galerie-30.webp">
+                <img src="assets/images/galerie/galerie-30.jpg" alt="Femme appliquant son mascara avec la brosse" width="720" height="1280" loading="lazy" decoding="async">
+              </picture>
+              <span class="carte-galerie__voile" aria-hidden="true">Demander ce look</span></a>
+            <figcaption class="carte-galerie__legende">
+              <h2>Cil à cil</h2>
+              <p>L'application du mascara, brosse après brosse.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="carte-galerie" data-categorie="maquillage" data-reveal>
+            <a class="carte-galerie__bouton" href="https://wa.me/22946543406?text=Bonjour%20mMardy%20Beauty%2C%20je%20souhaite%20des%20informations%20sur%20ce%20visuel%20%3A%20Naturel%20assum%C3%A9." target="_blank" rel="noopener" aria-label="Demander ce look sur WhatsApp : Naturel assumé"><picture>
+                <source type="image/webp" srcset="assets/images/galerie/galerie-12.webp">
+                <img src="assets/images/galerie/galerie-12.jpg" alt="Portrait d'une femme aux cheveux naturels courts au maquillage léger" width="735" height="928" loading="lazy" decoding="async">
+              </picture>
+              <span class="carte-galerie__voile" aria-hidden="true">Demander ce look</span></a>
+            <figcaption class="carte-galerie__legende">
+              <h2>Naturel assumé</h2>
+              <p>Coupe courte et maquillage minimal, la simplicité en lumière.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="carte-galerie" data-categorie="onglerie" data-reveal>
+            <a class="carte-galerie__bouton" href="https://wa.me/22946543406?text=Bonjour%20mMardy%20Beauty%2C%20je%20souhaite%20des%20informations%20sur%20ce%20visuel%20%3A%20Amande%20chocolat." target="_blank" rel="noopener" aria-label="Demander ce look sur WhatsApp : Amande chocolat"><picture>
+                <source type="image/webp" srcset="assets/images/galerie/galerie-36.webp">
+                <img src="assets/images/galerie/galerie-36.jpg" alt="Main aux longs ongles amande bruns portant des bagues dorées" width="736" height="1104" loading="lazy" decoding="async">
+              </picture>
+              <span class="carte-galerie__voile" aria-hidden="true">Demander ce look</span></a>
+            <figcaption class="carte-galerie__legende">
+              <h2>Amande chocolat</h2>
+              <p>Des ongles amande aux reflets caramel et brun.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="carte-galerie" data-categorie="maquillage" data-reveal>
+            <a class="carte-galerie__bouton" href="https://wa.me/22946543406?text=Bonjour%20mMardy%20Beauty%2C%20je%20souhaite%20des%20informations%20sur%20ce%20visuel%20%3A%20Bouches%20glac%C3%A9es." target="_blank" rel="noopener" aria-label="Demander ce look sur WhatsApp : Bouches glacées"><picture>
+                <source type="image/webp" srcset="assets/images/galerie/galerie-27.webp">
+                <img src="assets/images/galerie/galerie-27.jpg" alt="Planche de gros plans de lèvres aux finis brillants bruns" width="736" height="987" loading="lazy" decoding="async">
+              </picture>
+              <span class="carte-galerie__voile" aria-hidden="true">Demander ce look</span></a>
+            <figcaption class="carte-galerie__legende">
+              <h2>Bouches glacées</h2>
+              <p>Des finis brillants saisis en macro, teinte après teinte.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="carte-galerie" data-categorie="maquillage" data-reveal>
+            <a class="carte-galerie__bouton" href="https://wa.me/22946543406?text=Bonjour%20mMardy%20Beauty%2C%20je%20souhaite%20des%20informations%20sur%20ce%20visuel%20%3A%20%C3%89l%C3%A9gance%20dentelle." target="_blank" rel="noopener" aria-label="Demander ce look sur WhatsApp : Élégance dentelle"><picture>
+                <source type="image/webp" srcset="assets/images/galerie/galerie-19.webp">
+                <img src="assets/images/galerie/galerie-19.jpg" alt="Portrait d'une femme en haut de dentelle, les yeux fermés" width="736" height="1393" loading="lazy" decoding="async">
+              </picture>
+              <span class="carte-galerie__voile" aria-hidden="true">Demander ce look</span></a>
+            <figcaption class="carte-galerie__legende">
+              <h2>Élégance dentelle</h2>
+              <p>Yeux clos et geste suspendu, pour un rendu tout en douceur.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="carte-galerie" data-categorie="maquillage" data-reveal>
+            <a class="carte-galerie__bouton" href="https://wa.me/22946543406?text=Bonjour%20mMardy%20Beauty%2C%20je%20souhaite%20des%20informations%20sur%20ce%20visuel%20%3A%20Regard%20paillet%C3%A9." target="_blank" rel="noopener" aria-label="Demander ce look sur WhatsApp : Regard pailleté"><picture>
+                <source type="image/webp" srcset="assets/images/galerie/galerie-41.webp">
+                <img src="assets/images/galerie/galerie-41.jpg" alt="Portrait d'une femme au fard à paupières doré pailleté" width="735" height="722" loading="lazy" decoding="async">
+              </picture>
+              <span class="carte-galerie__voile" aria-hidden="true">Demander ce look</span></a>
+            <figcaption class="carte-galerie__legende">
+              <h2>Regard pailleté</h2>
+              <p>Un fard doré pailleté posé sur toute la paupière.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="carte-galerie" data-categorie="onglerie" data-reveal>
+            <a class="carte-galerie__bouton" href="https://wa.me/22946543406?text=Bonjour%20mMardy%20Beauty%2C%20je%20souhaite%20des%20informations%20sur%20ce%20visuel%20%3A%20Or%20et%20bijoux." target="_blank" rel="noopener" aria-label="Demander ce look sur WhatsApp : Or et bijoux"><picture>
+                <source type="image/webp" srcset="assets/images/galerie/galerie-20.webp">
+                <img src="assets/images/galerie/galerie-20.jpg" alt="Planche de mains manicurées portant des bijoux dorés" width="474" height="842" loading="lazy" decoding="async">
+              </picture>
+              <span class="carte-galerie__voile" aria-hidden="true">Demander ce look</span></a>
+            <figcaption class="carte-galerie__legende">
+              <h2>Or et bijoux</h2>
+              <p>Des pointes dorées mises en valeur par la bijouterie.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="carte-galerie" data-categorie="maquillage" data-reveal>
+            <a class="carte-galerie__bouton" href="https://wa.me/22946543406?text=Bonjour%20mMardy%20Beauty%2C%20je%20souhaite%20des%20informations%20sur%20ce%20visuel%20%3A%20Bouche%20mauve." target="_blank" rel="noopener" aria-label="Demander ce look sur WhatsApp : Bouche mauve"><picture>
+                <source type="image/webp" srcset="assets/images/galerie/galerie-35.webp">
+                <img src="assets/images/galerie/galerie-35.jpg" alt="Gros plan sur une bouche maquillée d'un rouge à lèvres mat mauve" width="636" height="640" loading="lazy" decoding="async">
+              </picture>
+              <span class="carte-galerie__voile" aria-hidden="true">Demander ce look</span></a>
+            <figcaption class="carte-galerie__legende">
+              <h2>Bouche mauve</h2>
+              <p>Un mat confortable, parfaitement dessiné, en gros plan.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="carte-galerie" data-categorie="maquillage" data-reveal>
+            <a class="carte-galerie__bouton" href="https://wa.me/22946543406?text=Bonjour%20mMardy%20Beauty%2C%20je%20souhaite%20des%20informations%20sur%20ce%20visuel%20%3A%20Sourire%20en%20lumi%C3%A8re." target="_blank" rel="noopener" aria-label="Demander ce look sur WhatsApp : Sourire en lumière"><picture>
+                <source type="image/webp" srcset="assets/images/galerie/galerie-23.webp">
+                <img src="assets/images/galerie/galerie-23.jpg" alt="Portrait d'une femme souriante portant des lunettes et un haut à fleurs" width="736" height="1308" loading="lazy" decoding="async">
+              </picture>
+              <span class="carte-galerie__voile" aria-hidden="true">Demander ce look</span></a>
+            <figcaption class="carte-galerie__legende">
+              <h2>Sourire en lumière</h2>
+              <p>Un maquillage léger qui laisse toute la place au sourire.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="carte-galerie" data-categorie="soins" data-reveal>
+            <a class="carte-galerie__bouton" href="https://wa.me/22946543406?text=Bonjour%20mMardy%20Beauty%2C%20je%20souhaite%20des%20informations%20sur%20ce%20visuel%20%3A%20%C3%89crin%20cr%C3%A8me." target="_blank" rel="noopener" aria-label="Demander ce look sur WhatsApp : Écrin crème"><picture>
+                <source type="image/webp" srcset="assets/images/galerie/galerie-24.webp">
+                <img src="assets/images/galerie/galerie-24.jpg" alt="Nature morte d'un pot de crème cosmétique sur fond rose poudré" width="1024" height="1024" loading="lazy" decoding="async">
+              </picture>
+              <span class="carte-galerie__voile" aria-hidden="true">Demander ce look</span></a>
+            <figcaption class="carte-galerie__legende">
+              <h2>Écrin crème</h2>
+              <p>Un pot de soin mis en scène sur la pierre, parmi les herbes folles.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="carte-galerie" data-categorie="maquillage" data-reveal>
+            <a class="carte-galerie__bouton" href="https://wa.me/22946543406?text=Bonjour%20mMardy%20Beauty%2C%20je%20souhaite%20des%20informations%20sur%20ce%20visuel%20%3A%20Quatre%20bouches." target="_blank" rel="noopener" aria-label="Demander ce look sur WhatsApp : Quatre bouches"><picture>
+                <source type="image/webp" srcset="assets/images/galerie/galerie-39.webp">
+                <img src="assets/images/galerie/galerie-39.jpg" alt="Planche de quatre gros plans de bouches aux finis brillants" width="736" height="921" loading="lazy" decoding="async">
+              </picture>
+              <span class="carte-galerie__voile" aria-hidden="true">Demander ce look</span></a>
+            <figcaption class="carte-galerie__legende">
+              <h2>Quatre bouches</h2>
+              <p>Une même carnation, quatre finis, du nude au brun glacé.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="carte-galerie" data-categorie="maquillage" data-reveal>
+            <a class="carte-galerie__bouton" href="https://wa.me/22946543406?text=Bonjour%20mMardy%20Beauty%2C%20je%20souhaite%20des%20informations%20sur%20ce%20visuel%20%3A%20Ondulations%20gloss." target="_blank" rel="noopener" aria-label="Demander ce look sur WhatsApp : Ondulations gloss"><picture>
+                <source type="image/webp" srcset="assets/images/galerie/galerie-15.webp">
+                <img src="assets/images/galerie/galerie-15.jpg" alt="Portrait d'une femme aux cheveux ondulés et aux lèvres très brillantes" width="736" height="919" loading="lazy" decoding="async">
+              </picture>
+              <span class="carte-galerie__voile" aria-hidden="true">Demander ce look</span></a>
+            <figcaption class="carte-galerie__legende">
+              <h2>Ondulations gloss</h2>
+              <p>Des ondulations souples et une bouche ultra-brillante.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="carte-galerie" data-categorie="maquillage" data-reveal>
+            <a class="carte-galerie__bouton" href="https://wa.me/22946543406?text=Bonjour%20mMardy%20Beauty%2C%20je%20souhaite%20des%20informations%20sur%20ce%20visuel%20%3A%20%C3%89l%C3%A9gance%20cercl%C3%A9e." target="_blank" rel="noopener" aria-label="Demander ce look sur WhatsApp : Élégance cerclée"><picture>
+                <source type="image/webp" srcset="assets/images/galerie/galerie-33.webp">
+                <img src="assets/images/galerie/galerie-33.jpg" alt="Portrait élégant d'une femme au maquillage sobre portant un collier" width="736" height="1308" loading="lazy" decoding="async">
+              </picture>
+              <span class="carte-galerie__voile" aria-hidden="true">Demander ce look</span></a>
+            <figcaption class="carte-galerie__legende">
+              <h2>Élégance cerclée</h2>
+              <p>Une mise en beauté sobre, soulignée d'un collier fin.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="carte-galerie" data-categorie="maquillage" data-reveal>
+            <a class="carte-galerie__bouton" href="https://wa.me/22946543406?text=Bonjour%20mMardy%20Beauty%2C%20je%20souhaite%20des%20informations%20sur%20ce%20visuel%20%3A%20Rose%20laqu%C3%A9." target="_blank" rel="noopener" aria-label="Demander ce look sur WhatsApp : Rose laqué"><picture>
+                <source type="image/webp" srcset="assets/images/galerie/galerie-28.webp">
+                <img src="assets/images/galerie/galerie-28.jpg" alt="Planche de gros plans de lèvres roses au fini très brillant" width="736" height="1308" loading="lazy" decoding="async">
+              </picture>
+              <span class="carte-galerie__voile" aria-hidden="true">Demander ce look</span></a>
+            <figcaption class="carte-galerie__legende">
+              <h2>Rose laqué</h2>
+              <p>Des lèvres roses ultra-brillantes, comme vernies.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="carte-galerie" data-categorie="maquillage" data-reveal>
+            <a class="carte-galerie__bouton" href="https://wa.me/22946543406?text=Bonjour%20mMardy%20Beauty%2C%20je%20souhaite%20des%20informations%20sur%20ce%20visuel%20%3A%20Rose%20intense." target="_blank" rel="noopener" aria-label="Demander ce look sur WhatsApp : Rose intense"><picture>
+                <source type="image/webp" srcset="assets/images/galerie/galerie-29.webp">
+                <img src="assets/images/galerie/galerie-29.jpg" alt="Portrait d'une femme au maquillage glamour sur fond rose" width="736" height="1252" loading="lazy" decoding="async">
+              </picture>
+              <span class="carte-galerie__voile" aria-hidden="true">Demander ce look</span></a>
+            <figcaption class="carte-galerie__legende">
+              <h2>Rose intense</h2>
+              <p>Un glam affirmé, réhaussé par un fond rose poudré.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="carte-galerie" data-categorie="soins" data-reveal>
+            <a class="carte-galerie__bouton" href="https://wa.me/22946543406?text=Bonjour%20mMardy%20Beauty%2C%20je%20souhaite%20des%20informations%20sur%20ce%20visuel%20%3A%20Rituel%20du%20matin." target="_blank" rel="noopener" aria-label="Demander ce look sur WhatsApp : Rituel du matin"><picture>
+                <source type="image/webp" srcset="assets/images/galerie/galerie-18.webp">
+                <img src="assets/images/galerie/galerie-18.jpg" alt="Femme en peignoir et serre-tête devant un fond doré, lors de sa routine beauté" width="736" height="1308" loading="lazy" decoding="async">
+              </picture>
+              <span class="carte-galerie__voile" aria-hidden="true">Demander ce look</span></a>
+            <figcaption class="carte-galerie__legende">
+              <h2>Rituel du matin</h2>
+              <p>Le temps du soin, avant que le maquillage ne prenne place.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="carte-galerie" data-categorie="maquillage" data-reveal>
+            <a class="carte-galerie__bouton" href="https://wa.me/22946543406?text=Bonjour%20mMardy%20Beauty%2C%20je%20souhaite%20des%20informations%20sur%20ce%20visuel%20%3A%20Yeux%20clos." target="_blank" rel="noopener" aria-label="Demander ce look sur WhatsApp : Yeux clos"><picture>
+                <source type="image/webp" srcset="assets/images/galerie/galerie-25.webp">
+                <img src="assets/images/galerie/galerie-25.jpg" alt="Portrait d'une femme les yeux clos, bouche nue, cheveux raides" width="720" height="1184" loading="lazy" decoding="async">
+              </picture>
+              <span class="carte-galerie__voile" aria-hidden="true">Demander ce look</span></a>
+            <figcaption class="carte-galerie__legende">
+              <h2>Yeux clos</h2>
+              <p>Un regard baissé, une bouche brun nu, tout en retenue.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="carte-galerie" data-categorie="soins" data-reveal>
+            <a class="carte-galerie__bouton" href="https://wa.me/22946543406?text=Bonjour%20mMardy%20Beauty%2C%20je%20souhaite%20des%20informations%20sur%20ce%20visuel%20%3A%20D%C3%A9tails%20de%20rituel." target="_blank" rel="noopener" aria-label="Demander ce look sur WhatsApp : Détails de rituel"><picture>
+                <source type="image/webp" srcset="assets/images/galerie/galerie-21.webp">
+                <img src="assets/images/galerie/galerie-21.jpg" alt="Planche de détails : masque sur le visage, cils, ongles et sourire" width="736" height="1308" loading="lazy" decoding="async">
+              </picture>
+              <span class="carte-galerie__voile" aria-hidden="true">Demander ce look</span></a>
+            <figcaption class="carte-galerie__legende">
+              <h2>Détails de rituel</h2>
+              <p>Masque, cils, ongles et sourire : la beauté dans le détail.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="carte-galerie" data-categorie="maquillage" data-reveal>
+            <a class="carte-galerie__bouton" href="https://wa.me/22946543406?text=Bonjour%20mMardy%20Beauty%2C%20je%20souhaite%20des%20informations%20sur%20ce%20visuel%20%3A%20Ondulations%20%C3%A9l%C3%A9gantes." target="_blank" rel="noopener" aria-label="Demander ce look sur WhatsApp : Ondulations élégantes"><picture>
+                <source type="image/webp" srcset="assets/images/galerie/galerie-34.webp">
+                <img src="assets/images/galerie/galerie-34.jpg" alt="Portrait d'une femme aux cheveux ondulés, la main au menton" width="735" height="1023" loading="lazy" decoding="async">
+              </picture>
+              <span class="carte-galerie__voile" aria-hidden="true">Demander ce look</span></a>
+            <figcaption class="carte-galerie__legende">
+              <h2>Ondulations élégantes</h2>
+              <p>Une main posée, un regard doux : l'élégance sans effort.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="carte-galerie" data-categorie="maquillage" data-reveal>
+            <a class="carte-galerie__bouton" href="https://wa.me/22946543406?text=Bonjour%20mMardy%20Beauty%2C%20je%20souhaite%20des%20informations%20sur%20ce%20visuel%20%3A%20Bonne%20mine." target="_blank" rel="noopener" aria-label="Demander ce look sur WhatsApp : Bonne mine"><picture>
+                <source type="image/webp" srcset="assets/images/galerie/galerie-37.webp">
+                <img src="assets/images/galerie/galerie-37.jpg" alt="Portrait d'une femme allongée, blush rose sur les joues" width="736" height="1152" loading="lazy" decoding="async">
+              </picture>
+              <span class="carte-galerie__voile" aria-hidden="true">Demander ce look</span></a>
+            <figcaption class="carte-galerie__legende">
+              <h2>Bonne mine</h2>
+              <p>Un blush frais qui vient réveiller les pommettes.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="carte-galerie" data-categorie="maquillage" data-reveal>
+            <a class="carte-galerie__bouton" href="https://wa.me/22946543406?text=Bonjour%20mMardy%20Beauty%2C%20je%20souhaite%20des%20informations%20sur%20ce%20visuel%20%3A%20Clair-obscur." target="_blank" rel="noopener" aria-label="Demander ce look sur WhatsApp : Clair-obscur"><picture>
+                <source type="image/webp" srcset="assets/images/galerie/galerie-31.webp">
+                <img src="assets/images/galerie/galerie-31.jpg" alt="Portrait sombre et artistique d'une femme aux lèvres brillantes" width="736" height="1308" loading="lazy" decoding="async">
+              </picture>
+              <span class="carte-galerie__voile" aria-hidden="true">Demander ce look</span></a>
+            <figcaption class="carte-galerie__legende">
+              <h2>Clair-obscur</h2>
+              <p>Un portrait sombre où seule la bouche capte la lumière.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="carte-galerie" data-categorie="maquillage" data-reveal>
+            <a class="carte-galerie__bouton" href="https://wa.me/22946543406?text=Bonjour%20mMardy%20Beauty%2C%20je%20souhaite%20des%20informations%20sur%20ce%20visuel%20%3A%20Cr%C3%A9oles%20dor%C3%A9es." target="_blank" rel="noopener" aria-label="Demander ce look sur WhatsApp : Créoles dorées"><picture>
+                <source type="image/webp" srcset="assets/images/galerie/galerie-40.webp">
+                <img src="assets/images/galerie/galerie-40.jpg" alt="Portrait d'une femme aux cheveux courts portant de grandes boucles d'oreilles dorées" width="736" height="920" loading="lazy" decoding="async">
+              </picture>
+              <span class="carte-galerie__voile" aria-hidden="true">Demander ce look</span></a>
+            <figcaption class="carte-galerie__legende">
+              <h2>Créoles dorées</h2>
+              <p>Un teint travaillé et de grandes créoles pour tout éclairer.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="carte-galerie" data-categorie="maquillage" data-reveal>
+            <a class="carte-galerie__bouton" href="https://wa.me/22946543406?text=Bonjour%20mMardy%20Beauty%2C%20je%20souhaite%20des%20informations%20sur%20ce%20visuel%20%3A%20Carnet%20de%20looks." target="_blank" rel="noopener" aria-label="Demander ce look sur WhatsApp : Carnet de looks"><picture>
+                <source type="image/webp" srcset="assets/images/galerie/galerie-13.webp">
+                <img src="assets/images/galerie/galerie-13.jpg" alt="Planche regroupant plusieurs portraits rapprochés, bouche et regard" width="736" height="800" loading="lazy" decoding="async">
+              </picture>
+              <span class="carte-galerie__voile" aria-hidden="true">Demander ce look</span></a>
+            <figcaption class="carte-galerie__legende">
+              <h2>Carnet de looks</h2>
+              <p>Plusieurs mises en beauté réunies dans une même planche.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="carte-galerie" data-categorie="maquillage" data-reveal>
+            <a class="carte-galerie__bouton" href="https://wa.me/22946543406?text=Bonjour%20mMardy%20Beauty%2C%20je%20souhaite%20des%20informations%20sur%20ce%20visuel%20%3A%20Accord%20floral." target="_blank" rel="noopener" aria-label="Demander ce look sur WhatsApp : Accord floral"><picture>
+                <source type="image/webp" srcset="assets/images/galerie/galerie-38.webp">
+                <img src="assets/images/galerie/galerie-38.jpg" alt="Portrait d'une femme au maquillage nude et au haut à motifs floraux" width="736" height="1308" loading="lazy" decoding="async">
+              </picture>
+              <span class="carte-galerie__voile" aria-hidden="true">Demander ce look</span></a>
+            <figcaption class="carte-galerie__legende">
+              <h2>Accord floral</h2>
+              <p>Un maquillage nude qui s'accorde aux tons du vêtement.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="carte-galerie" data-categorie="maquillage" data-reveal>
+            <a class="carte-galerie__bouton" href="https://wa.me/22946543406?text=Bonjour%20mMardy%20Beauty%2C%20je%20souhaite%20des%20informations%20sur%20ce%20visuel%20%3A%20Carr%C3%A9%20chic." target="_blank" rel="noopener" aria-label="Demander ce look sur WhatsApp : Carré chic"><picture>
+                <source type="image/webp" srcset="assets/images/galerie/galerie-43.webp">
+                <img src="assets/images/galerie/galerie-43.jpg" alt="Portrait d'une femme au carré lisse et au maquillage doux" width="736" height="1308" loading="lazy" decoding="async">
+              </picture>
+              <span class="carte-galerie__voile" aria-hidden="true">Demander ce look</span></a>
+            <figcaption class="carte-galerie__legende">
+              <h2>Carré chic</h2>
+              <p>Un carré net et une mise en beauté douce.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="carte-galerie" data-categorie="maquillage" data-reveal>
+            <a class="carte-galerie__bouton" href="https://wa.me/22946543406?text=Bonjour%20mMardy%20Beauty%2C%20je%20souhaite%20des%20informations%20sur%20ce%20visuel%20%3A%20Sobri%C3%A9t%C3%A9." target="_blank" rel="noopener" aria-label="Demander ce look sur WhatsApp : Sobriété"><picture>
+                <source type="image/webp" srcset="assets/images/galerie/galerie-42.webp">
+                <img src="assets/images/galerie/galerie-42.jpg" alt="Portrait d'une femme aux longs cheveux raides au maquillage très naturel" width="736" height="1208" loading="lazy" decoding="async">
+              </picture>
+              <span class="carte-galerie__voile" aria-hidden="true">Demander ce look</span></a>
+            <figcaption class="carte-galerie__legende">
+              <h2>Sobriété</h2>
+              <p>Un naturel maîtrisé, du teint jusqu'aux lèvres.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="carte-galerie" data-categorie="maquillage" data-reveal>
+            <a class="carte-galerie__bouton" href="https://wa.me/22946543406?text=Bonjour%20mMardy%20Beauty%2C%20je%20souhaite%20des%20informations%20sur%20ce%20visuel%20%3A%20Fra%C3%AEcheur%20naturelle." target="_blank" rel="noopener" aria-label="Demander ce look sur WhatsApp : Fraîcheur naturelle"><picture>
+                <source type="image/webp" srcset="assets/images/galerie/galerie-16.webp">
+                <img src="assets/images/galerie/galerie-16.jpg" alt="Portrait d'une femme aux cheveux courts naturels au maquillage discret" width="736" height="1308" loading="lazy" decoding="async">
+              </picture>
+              <span class="carte-galerie__voile" aria-hidden="true">Demander ce look</span></a>
+            <figcaption class="carte-galerie__legende">
+              <h2>Fraîcheur naturelle</h2>
+              <p>Un teint lumineux et des lèvres à peine teintées.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="carte-galerie" data-categorie="maquillage" data-reveal>
+            <a class="carte-galerie__bouton" href="https://wa.me/22946543406?text=Bonjour%20mMardy%20Beauty%2C%20je%20souhaite%20des%20informations%20sur%20ce%20visuel%20%3A%20Sans%20artifice." target="_blank" rel="noopener" aria-label="Demander ce look sur WhatsApp : Sans artifice"><picture>
+                <source type="image/webp" srcset="assets/images/galerie/galerie-44.webp">
+                <img src="assets/images/galerie/galerie-44.jpg" alt="Portrait d'une femme aux cheveux courts, maquillage minimal" width="412" height="718" loading="lazy" decoding="async">
+              </picture>
+              <span class="carte-galerie__voile" aria-hidden="true">Demander ce look</span></a>
+            <figcaption class="carte-galerie__legende">
+              <h2>Sans artifice</h2>
+              <p>Presque rien, et pourtant tout est là.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="carte-galerie" data-categorie="maquillage" data-reveal>
+            <a class="carte-galerie__bouton" href="https://wa.me/22946543406?text=Bonjour%20mMardy%20Beauty%2C%20je%20souhaite%20des%20informations%20sur%20ce%20visuel%20%3A%20Douceur%20du%20jour." target="_blank" rel="noopener" aria-label="Demander ce look sur WhatsApp : Douceur du jour"><picture>
+                <source type="image/webp" srcset="assets/images/galerie/galerie-06.webp">
+                <img src="assets/images/galerie/galerie-06.jpg" alt="Jeune femme vêtue de rose, maquillage naturel, en extérieur" width="736" height="1104" loading="lazy" decoding="async">
+              </picture>
+              <span class="carte-galerie__voile" aria-hidden="true">Demander ce look</span></a>
+            <figcaption class="carte-galerie__legende">
+              <h2>Douceur du jour</h2>
+              <p>Un maquillage léger pour un rendu naturel en pleine lumière.</p>
+            </figcaption>
+          </figure>
+        </div>
+
+        <p class="message-vide" id="galerie-vide" hidden>Aucun visuel ne correspond à cette catégorie.</p>
+      </div>
+    </section>
+
+    <section class="section section--prune" aria-labelledby="titre-suite">
+      <div class="conteneur section__entete section__entete--centre" data-reveal>
+        <h2 id="titre-suite">Ce visuel vous plaît ?</h2>
+        <p>Envoyez-moi son nom, avec la date et le lieu : je vous réponds avec mes disponibilités.</p>
+        <div class="actions actions--centre">
+          <a class="bouton bouton--clair" href="https://wa.me/22946543406?text=Bonjour%20mMardy%20Beauty%2C%20je%20souhaite%20prendre%20rendez-vous." target="_blank" rel="noopener">Écrire sur WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <footer class="pied">
+    <div class="conteneur">
+      <div class="pied__grille">
+        <div>
+          <p class="pied__nom">
+            <img src="assets/brand/badge.png" alt="" width="96" height="96">
+            <span>mMardy Beauty</span>
+          </p>
+          <p>
+            Maquillage, coiffure et perruques, onglerie et soins du visage.
+            Prestations sur rendez-vous, à mon domicile ou chez vous,
+            à Porto-Novo et à Cotonou.
+          </p>
+        </div>
+
+        <nav aria-label="Navigation de pied de page">
+          <h3>Navigation</h3>
+          <ul class="pied__liste">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="prestations.html">Prestations</a></li>
+            <li><a href="galerie.html">Galerie</a></li>
+            <li><a href="a-propos.html">À propos</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div>
+          <h3>Me contacter</h3>
+          <ul class="pied__liste">
+            <li><a href="https://wa.me/22946543406" target="_blank" rel="noopener">WhatsApp : +229 46 54 34 06</a></li>
+            <li><a href="tel:+22946543406">Téléphone : +229 46 54 34 06</a></li>
+            <li>Porto-Novo, Bénin</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Pratique</h3>
+          <ul class="pied__liste">
+            <li>Sur rendez-vous</li>
+            <li>À domicile ou en déplacement</li>
+            <li>Porto-Novo et Cotonou</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pied__bas">
+        <p>© <span data-annee>2026</span> mMardy Beauty. Tous droits réservés.</p>
+        <p>Maquillage · Coiffure · Onglerie · Soins du visage</p>
+      </div>
+    </div>
+  </footer>
+
+  <a class="bouton-flottant" href="https://wa.me/22946543406?text=Bonjour%20mMardy%20Beauty%2C%20je%20souhaite%20prendre%20rendez-vous." target="_blank" rel="noopener" aria-label="Discuter avec mMardy Beauty sur WhatsApp"><svg class="bouton-flottant__icone" viewBox="0 0 448 512" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg><span class="bouton-flottant__libelle">WhatsApp</span></a>
+</body>
+
+</html>
