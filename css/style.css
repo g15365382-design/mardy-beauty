@@ -604,6 +604,9 @@ p:last-child {
 }
 
 .filtre {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   padding: var(--espace-2) var(--espace-5);
   background: var(--couleur-blanc);
   border: 1px solid var(--couleur-bordure);
@@ -870,6 +873,8 @@ p:last-child {
 .champ input,
 .champ select,
 .champ textarea {
+  width: 100%;
+  min-width: 0;
   padding: var(--espace-3) var(--espace-4);
   background: var(--couleur-creme);
   border: 1px solid var(--couleur-bordure-champ);
@@ -1017,6 +1022,12 @@ p:last-child {
   font-size: var(--taille-sm);
 }
 
+.pied__liste a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+}
+
 .pied__bas {
   display: flex;
   flex-wrap: wrap;
@@ -1078,8 +1089,8 @@ p:last-child {
   }
 
   .nav__lien {
-    padding: var(--espace-2) var(--espace-3);
-    font-size: var(--taille-xs);
+    padding: 11px var(--espace-2);
+    font-size: var(--taille-sm);
     letter-spacing: 0.03em;
   }
 }
@@ -1162,6 +1173,7 @@ p:last-child {
 }
 
 .lien-whatsapp {
+  position: relative;
   font-size: var(--taille-sm);
   font-weight: 700;
   color: var(--couleur-prune);
@@ -1169,6 +1181,13 @@ p:last-child {
   text-decoration: none;
   padding-bottom: 2px;
   border-bottom: 2px solid var(--couleur-dore-clair);
+}
+
+/* Etend la zone d'appui a 44 px de haut sans deplacer le soulignement. */
+.lien-whatsapp::after {
+  content: "";
+  position: absolute;
+  inset: -8px 0;
 }
 
 .lien-whatsapp:hover {

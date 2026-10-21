@@ -288,6 +288,13 @@ toute modification demande de les reverifier.
 - Menu mobile anime sous 768 px, navigation clavier, fermeture par `Echap`,
   defilement de la page verrouille tant que le menu est ouvert. Entre 768 px et
   1099 px, le menu resserre ses entrees pour rester sur une seule ligne.
+- Cibles tactiles : burger 46 x 46 px, entrees du menu mobile 260 x 58 px,
+  boutons au moins 50 px de haut, filtres de la galerie 44 px, liens du pied de
+  page 24 px de haut. Les liens « Demander cette prestation » gardent leur
+  soulignement mais voient leur zone d'appui portee a 44 px par un `::after`.
+- Formulaire : les champs portent `width: 100%` et `min-width: 0`. Sans cela, la
+  largeur minimale intrinseque d'une liste deroulante depasse la carte et la fait
+  deborder de 22 px sous 350 px de large.
 - Galerie : chaque visuel est un lien vers WhatsApp qui ouvre un nouvel onglet
   (`target="_blank" rel="noopener"`) et porte un nom accessible explicite
   (« Demander ce look sur WhatsApp : ... »). Sur les appareils tactiles
