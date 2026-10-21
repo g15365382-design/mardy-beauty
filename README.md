@@ -28,18 +28,34 @@ Puis ouvrir <http://localhost:8000/>.
 
 ## Publication
 
-Le site est publie par GitHub Pages depuis la branche `main` du depot
-<https://github.com/g15365382-design/mardy-beauty>, a l'adresse :
+Le site est publie sur Cloudflare Pages, a l'adresse :
 
-<https://g15365382-design.github.io/mardy-beauty/>
+<https://mardybeauty.pages.dev/>
 
-Pour mettre le site a jour, modifier les fichiers puis :
+Le projet Cloudflare `mardybeauty` est alimente par envoi direct depuis le depot
+<https://github.com/g15365382-design/mardy-beauty>. Pour mettre le site a jour,
+modifier les fichiers puis :
 
 ```bash
 git add -A
 git commit -m "Description de la modification"
 git push
 ```
+
+Publier ensuite sur Cloudflare. La copie intermediaire evite d'envoyer
+l'historique Git :
+
+```bash
+rm -rf /tmp/deploy && mkdir /tmp/deploy
+cp -a index.html prestations.html galerie.html a-propos.html contact.html \
+      css js assets /tmp/deploy/
+npx wrangler pages deploy /tmp/deploy --project-name mardybeauty --branch main
+```
+
+GitHub Pages reste actif en secours a l'adresse
+<https://g15365382-design.github.io/mardy-beauty/>. Les deux adresses servent le
+meme contenu, mais c'est `mardybeauty.pages.dev` qui fait reference dans les
+balises `canonical` et `og:url`.
 
 GitHub reconstruit le site automatiquement en une minute environ.
 
@@ -167,12 +183,14 @@ portrait : d'ou cette image dediee, composee d'un panneau creme et d'un portrait
 
 L'adresse du site est repetee dans le `<link rel="canonical">` et les balises
 `og:url` des cinq pages. Si le site change de domaine, remplacer partout
-`https://g15365382-design.github.io/mardy-beauty/` par la nouvelle adresse.
+`https://mardybeauty.pages.dev/` par la nouvelle adresse. Les pages secondaires
+sont declarees sans extension (`/prestations`), forme servie directement par
+Cloudflare Pages ; l'adresse en `.html` redirige vers celle-ci.
 
 Regeneration de la carte (ImageMagick) :
 
 ```bash
-BASE=https://g15365382-design.github.io/mardy-beauty
+BASE=https://mardybeauty.pages.dev
 # Blocs de texte rendus en 2x pour rester nets, puis ramenes a l'echelle 1x.
 magick -background none -density 144 pango:'<span foreground="#6e3a4c" font="Liberation Serif Bold 72">mMardy Beauty</span>' t-titre.png
 magick t-titre.png -resize 50% t-titre-1x.png
@@ -335,7 +353,8 @@ bordure decorative ne depasse pas 1,3:1 et resterait invisible sous un champ.
   createurs. Elles sont conservees en attendant le choix de la cliente.
 - Le site n'existe pas sur les reseaux sociaux : WhatsApp et le telephone sont les
   seuls canaux, et il n'y a pas d'adresse electronique.
-- Le site est publie sur GitHub Pages, a l'adresse
-  <https://g15365382-design.github.io/mardy-beauty/>. Cette adresse est repetee
-  dans les balises `og:url` et `canonical` des cinq pages : passer sur un nom de
-  domaine propre demande de les mettre a jour.
+- Le site est publie sur Cloudflare Pages, a l'adresse
+  <https://mardybeauty.pages.dev/>, et reste accessible en secours sur GitHub
+  Pages a <https://g15365382-design.github.io/mardy-beauty/>. L'adresse de
+  reference est repetee dans les balises `og:url` et `canonical` des cinq pages :
+  passer sur un nom de domaine propre demande de les mettre a jour.
