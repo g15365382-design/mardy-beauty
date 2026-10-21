@@ -52,12 +52,10 @@ cp -a index.html prestations.html galerie.html a-propos.html contact.html \
 npx wrangler pages deploy /tmp/deploy --project-name mardybeauty --branch main
 ```
 
-GitHub Pages reste actif en secours a l'adresse
-<https://g15365382-design.github.io/mardy-beauty/>. Les deux adresses servent le
-meme contenu, mais c'est `mardybeauty.pages.dev` qui fait reference dans les
-balises `canonical` et `og:url`.
-
-GitHub reconstruit le site automatiquement en une minute environ.
+GitHub Pages a ete desactive : l'adresse
+<https://g15365382-design.github.io/mardy-beauty/> ne publie plus rien. Le depot
+reste la source du code et l'historique des modifications ; seule la publication
+automatique a ete arretee.
 
 ## Structure du projet
 
@@ -354,7 +352,8 @@ bordure decorative ne depasse pas 1,3:1 et resterait invisible sous un champ.
 - Le site n'existe pas sur les reseaux sociaux : WhatsApp et le telephone sont les
   seuls canaux, et il n'y a pas d'adresse electronique.
 - Le site est publie sur Cloudflare Pages, a l'adresse
-  <https://mardybeauty.pages.dev/>, et reste accessible en secours sur GitHub
-  Pages a <https://g15365382-design.github.io/mardy-beauty/>. L'adresse de
-  reference est repetee dans les balises `og:url` et `canonical` des cinq pages :
-  passer sur un nom de domaine propre demande de les mettre a jour.
+  <https://mardybeauty.pages.dev/>. GitHub Pages est desactive : le depot
+  <https://github.com/g15365382-design/mardy-beauty> conserve le code et son
+  historique, mais ne publie plus. L'adresse de reference est repetee dans les
+  balises `og:url` et `canonical` des cinq pages : passer sur un nom de domaine
+  propre demande de les mettre a jour.
